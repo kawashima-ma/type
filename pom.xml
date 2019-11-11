@@ -97,7 +97,12 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-
+		<!-- validation-api -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>1.1.0.Final</version>
+		</dependency>
 
 		<!-- Test Artifacts -->
 		<dependency>
@@ -146,6 +151,25 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-jdbc</artifactId>
 		    <version>${spring-jdbc.version}</version>
+		</dependency>
+
+		<!-- validation-api -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>1.1.0.Final</version>
+		</dependency>
+		<!-- Hibernate -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.0.1.Final</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>commons-codec</groupId>
+		  <artifactId>commons-codec</artifactId>
+		  <version>1.10</version>
 		</dependency>
 
 	</dependencies>

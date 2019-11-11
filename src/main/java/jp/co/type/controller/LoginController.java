@@ -32,16 +32,14 @@ public class LoginController {
 
 		if(result.hasErrors()){
 			model.addAttribute("loginForm", loginForm);
-			model.addAttribute("errormessages", "ログインに失敗しました");
         		return "login";
 		}
 
 		UserDto user = loginService.login(loginForm.getLogin_id(), loginForm.getPassword());
 		if(user == null) {
-			model.addAttribute("errormessages", "ログインに失敗しました");
 			return "login";
 		}
 		session.setAttribute("loginUser",user);
-		return "redirect:showMessage";
+		return "redirect:question";
 	}
 }

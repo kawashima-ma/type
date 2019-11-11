@@ -41,7 +41,9 @@ public class LoginController {
 			result.rejectValue("login_id", "ログインに失敗しました", "ログインに失敗しました");
 			return "login";
 		}
+
 		session.setAttribute("loginUser",user);
+
 		return "redirect:question";
 	}
 }

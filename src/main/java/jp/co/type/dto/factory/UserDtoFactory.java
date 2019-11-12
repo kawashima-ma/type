@@ -1,5 +1,8 @@
 package jp.co.type.dto.factory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import jp.co.type.dto.UserDto;
@@ -18,5 +21,14 @@ public class UserDtoFactory {
 				user.getPassword(),
 				user.getResult_type()
 				);
+	}
+
+	public List<UserDto> create(List<User> users){
+		List<UserDto> list = new ArrayList<UserDto>();
+		for(User user : users) {
+			list.add(create(user));
+		}
+
+		return list;
 	}
 }

@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import jp.co.type.service.TotalCatalogService;
 
 @Controller
-public class TotalCatalog {
+public class TotalCatalogController {
 	@Autowired
 	private TotalCatalogService service;
 	@RequestMapping(value = "/total", method = RequestMethod.GET)
 	public String doGet(Model model) {
 		model.addAttribute("users", service.getAllNew());
 		//タイプテーブルと紐付けしなくちゃ
+
+		model.addAttribute("type_names",service.getTypeName());
 		return "total";
 	}
 

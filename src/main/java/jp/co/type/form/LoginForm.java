@@ -3,9 +3,9 @@ package jp.co.type.form;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class LoginForm {
-	@NotEmpty
+	@NotEmpty(message = "ログインIDを入力してください")
 	private String login_id;
-	@NotEmpty
+	@NotEmpty(message = "パスワードを入力してください")
 	private String password;
 
 	public String getLogin_id() {

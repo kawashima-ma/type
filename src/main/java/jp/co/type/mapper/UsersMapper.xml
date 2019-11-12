@@ -13,6 +13,7 @@
 			password = #{password}
 </select>
 
+
 <select id="getAll" resultType="jp.co.type.entity.User">
 		select
 			*

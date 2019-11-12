@@ -7,7 +7,7 @@ public class User {
 	private String password;
 	private Integer result_type;
 
-	public User(Integer id, String login_id, String name, String password, Integer result_type) {
+	public User(String login_id, String name, String password) {
 		super();
 		this.id = id;
 		this.login_id = login_id;

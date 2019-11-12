@@ -13,7 +13,7 @@ public class SignupForm {
 	private Integer result_type;
 
 
-	public String getLoginId() {
+	public String getLogin_id() {
 		return login_id;
 	}
 

@@ -1,6 +1,6 @@
 package jp.co.type.controller;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.validation.Valid;
 
@@ -12,8 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import jp.co.type.dto.BranchDto;
 import jp.co.type.dto.factory.UserDtoFactory;
 import jp.co.type.form.SignupForm;
 import jp.co.type.service.SignupService;
@@ -38,17 +36,12 @@ public class SignupController {
 		}
 
 		try {
-			signupService.registUser(userDtoFactory.create(signupForm));
+			signupService.registUser(userDtoFactory.sign(signupForm));
 		} catch (DuplicateKeyException ex) {
 			result.rejectValue("loginId", "ログインIDが既に使用されています", "ログインIDが既に使用されています");
 			return "/signup";
 		}
 
 		return "redirect:management";
-	}
-
-	@ModelAttribute("branchList")
-	public List<BranchDto> getBranchList() {
-		return signupService.getBranchList();
-	}
+	 }
 	}

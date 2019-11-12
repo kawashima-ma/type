@@ -12,7 +12,7 @@
 <body>
 	<c:forEach items="${users}" var="user" >
 		<div>
-		<span class="user-elements">名前：<c:out value="${user.name}" /></span><br>
+		<span class="user-elements">名前：<c:out value="${user.name}" /></span>
 		<span class="user-elements">タイプ：</span>
 		<c:forEach items="${type_names }" var="type">
         	<c:if test="${type.id == user.result_type}">

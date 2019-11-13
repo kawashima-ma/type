@@ -14,10 +14,10 @@ public class TotalCatalogController {
 	private TotalCatalogService service;
 	@RequestMapping(value = "/total", method = RequestMethod.GET)
 	public String doGet(Model model) {
-		model.addAttribute("users", service.getAllNew());
+		model.addAttribute("users", service.getAllNewResults());
 		//タイプテーブルと紐付けしなくちゃ
 
-		model.addAttribute("type_names",service.getTypeName());
+		model.addAttribute("type_names",service.getTypeNames());
 		return "total";
 	}
 

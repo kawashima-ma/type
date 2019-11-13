@@ -12,13 +12,18 @@
 <body>
 	<c:forEach items="${users}" var="user" >
 		<div>
-		<span class="user-elements">名前：<c:out value="${user.name}" /></span>
+		<form action="/userPast" class="person">
+		<span class="user-elements">名前：
+		<c:out value="${user.name}" /></span>
 		<span class="user-elements">タイプ：</span>
 		<c:forEach items="${type_names }" var="type">
         	<c:if test="${type.id == user.result_type}">
         		<c:out value="${type.type_name}"/>
         	</c:if>
         </c:forEach>
+        <input type="hidden" name="user_id" value="${user.id }">
+        <input type="submit" value="詳細">
+        </form>
         </div>
 	</c:forEach>
 </body>

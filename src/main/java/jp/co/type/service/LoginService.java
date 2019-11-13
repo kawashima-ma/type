@@ -17,6 +17,7 @@ public class LoginService {
 
 	public UserDto login(String login_id, String password) {
 
+		//createでentityをdtoに移し変え
 		UserDto userDto = userDtoFactory.create(usersMapper.getUser(login_id, CipherUtil.encrypt(password)));
 		return userDto;
 	}

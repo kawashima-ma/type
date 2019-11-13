@@ -7,17 +7,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/login.css" />" rel="stylesheet">
 <title>タイプ診断</title>
 </head>
 <body>
 
 		<form:form modelAttribute="loginForm" class="form" action="${pageContext.request.contextPath}/login" method="post">
-		<div><form:errors path="*"  /></div>
-			<form:label path="login_id">ログインID</form:label>
-			<div><form:input path="login_id" /></div>
-	        <form:label path="password">パスワード</form:label>
-	        <div><form:password path="password" /></div>
-	        <input type="submit" value="ログイン">
+
+		<div id ="login">
+			<p class="form-title">ログイン</p>
+			<div class="error"><form:errors path="*"  /></div>
+				<form:label type="login_id" path="login_id">ログインID</form:label>
+				<p class="loginId"><form:input type="login_id" path="login_id" /></p>
+		        <form:label type="password" path="password">パスワード</form:label>
+		        <p class="password"><form:password path="password" /></p>
+		        <p class="submit"><input type="submit" value="ログイン"></p>
+		        <a herf="signup" >ユーザー登録はこちら</a>
+        </div>
 		</form:form>
 </body>
 </html>

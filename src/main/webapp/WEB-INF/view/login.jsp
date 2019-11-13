@@ -22,7 +22,7 @@
 		        <form:label type="password" path="password">パスワード</form:label>
 		        <p class="password"><form:password path="password" /></p>
 		        <p class="submit"><input type="submit" value="ログイン"></p>
-		        <a herf="signup" >ユーザー登録はこちら</a>
+		        <a href="signup" >ユーザー登録はこちら</a>
         </div>
 		</form:form>
 </body>

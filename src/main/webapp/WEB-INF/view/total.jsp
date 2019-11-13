@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/total.css" />" rel="stylesheet">
 <title>結果一覧</title>
 </head>
 <body>

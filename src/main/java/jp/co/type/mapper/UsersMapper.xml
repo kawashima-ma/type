@@ -20,4 +20,22 @@
 		from
 			users
 </select>
+
+<insert id="signs">
+		insert into users (
+			login_id,
+			name,
+			password,
+			result_type
+
+		) values (
+			#{login_id},
+			#{name},
+			#{password},
+			#{result_type}
+
+		)
+</insert>
+
+
 </mapper>

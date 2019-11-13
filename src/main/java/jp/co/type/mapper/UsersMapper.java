@@ -11,4 +11,7 @@ public interface UsersMapper {
 	User getUser (@Param("login_id")String login_id, @Param("password")String password);
 
 	List<User> getAll();
+
+	void signs(User entity);
+
 }

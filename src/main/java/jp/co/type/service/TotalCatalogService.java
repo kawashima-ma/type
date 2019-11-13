@@ -24,13 +24,13 @@ public class TotalCatalogService {
 	@Autowired
 	private TypeNamesMapper typeNamesMapper;
 
-	public List<UserDto> getAllNew(){
+	public List<UserDto> getAllNewResults(){
 		List<UserDto> list = new ArrayList<UserDto>();
 		list = userDtoFactory.create(usersMapper.getAll());
 		return list;
 	}
 
-	public List<TypeNameDto> getTypeName() {
+	public List<TypeNameDto> getTypeNames() {
 		List<TypeNameDto> list = new ArrayList<TypeNameDto>();
 		list = typeNameDtoFactory.create(typeNamesMapper.getAll());
 		return list;

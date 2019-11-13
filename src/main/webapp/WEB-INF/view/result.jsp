@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>診断結果</title>
  	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8" />
  	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+ 	<link href="<c:url value="/resources/css/result.css" />" rel="stylesheet">
 </head>
 <body>
 	<div style="height:600px; width:1000px; margin:0 auto;">

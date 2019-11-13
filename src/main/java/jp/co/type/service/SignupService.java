@@ -2,24 +2,25 @@ package jp.co.type.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import jp.co.type.Utils.CipherUtil;
 import jp.co.type.dto.UserDto;
 import jp.co.type.dto.factory.UserDtoFactory;
+import jp.co.type.entity.factory.UserFactory;
 import jp.co.type.mapper.UsersMapper;
+import jp.co.type.form.SignupForm;
 
 @Service
-public class LoginService {
+public class SignupService {
 	@Autowired
 	private UsersMapper usersMapper;
 	@Autowired
+	private UserFactory userFactory;
+	@Autowired
 	private UserDtoFactory userDtoFactory;
 
-	public UserDto login(String login_id, String password) {
+	public void registUser(UserDto userDto) {
 
-		//createでentityをdtoに移し変え
-		UserDto userDto = userDtoFactory.create(usersMapper.getUser(login_id, CipherUtil.encrypt(password)));
-		return userDto;
+		//dtoからentityに移しなおし
+		userFactory.createEncrypt(userDto);
+		usersMapper.signs(userFactory.createEncrypt(userDto));
 	}
-
 }

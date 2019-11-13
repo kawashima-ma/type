@@ -43,4 +43,7 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <!-- webapp下にjsやcssを配置する際の指定。resources下を全てresourceとみなす -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
 </beans>

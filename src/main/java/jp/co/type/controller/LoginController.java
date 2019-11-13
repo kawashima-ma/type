@@ -1,6 +1,7 @@
 package jp.co.type.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String doPost(@ModelAttribute LoginForm loginForm, Model model, BindingResult result) {
+    public String doPost(@Valid  @ModelAttribute  LoginForm loginForm, BindingResult result, Model model) {
 
 		if(result.hasErrors()){
 			model.addAttribute("loginForm", loginForm);
@@ -37,9 +38,12 @@ public class LoginController {
 
 		UserDto user = loginService.login(loginForm.getLogin_id(), loginForm.getPassword());
 		if(user == null) {
+			result.rejectValue("login_id", "ログインに失敗しました", "ログインに失敗しました");
 			return "login";
 		}
+
 		session.setAttribute("loginUser",user);
+
 		return "redirect:question";
 	}
 }

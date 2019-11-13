@@ -1,7 +1,5 @@
 package jp.co.type.controller;
 
-//import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +25,12 @@ public class SignupController {
 	public String signup(@ModelAttribute SignupForm signupForm, Model model) {
 		model.addAttribute("signupForm", signupForm);
 		return "/signup";
+
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@ModelAttribute @Valid SignupForm signupForm, BindingResult result, Model model) {
+
 		if (result.hasErrors()) {
 			return "/signup";
 		}
@@ -42,6 +42,6 @@ public class SignupController {
 			return "/signup";
 		}
 
-		return "redirect:management";
+		return "redirect:login";
 	 }
 	}

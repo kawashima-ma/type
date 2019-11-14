@@ -13,7 +13,13 @@
 <title>結果一覧</title>
 </head>
 <body>
+<header>
+<input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
+</header>
+
 	<div id="total">
+	<p class="form-title">全ユーザー結果一覧</p>
 	<form action="/userPast" class="person">
 	<c:forEach items="${users}" var="user" >
 		<div class="userTypeCard">
@@ -32,8 +38,6 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
-		        <input type="hidden" name="user_id" value="${user.id }">
-		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -45,8 +49,6 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
-		        <input type="hidden" name="user_id" value="${user.id }">
-		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -58,8 +60,6 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
-		        <input type="hidden" name="user_id" value="${user.id }">
-		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -71,8 +71,50 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
-		        <input type="hidden" name="user_id" value="${user.id }">
-		        <p class="submit"><input type="submit" value="結果一覧"></p>
+		        </div>
+		        </c:if>
+
+		        <c:if test="${user.result_type == 5 }">
+				<div class="userTypeCard-back5">
+				<div class="userType">
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
+		        </div>
+		        </c:if>
+
+		        <c:if test="${user.result_type == 6 }">
+				<div class="userTypeCard-back6">
+				<div class="userType">
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
+		        </div>
+		        </c:if>
+
+		        <c:if test="${user.result_type == 7 }">
+				<div class="userTypeCard-back7">
+				<div class="userType">
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
+		        </div>
+		        </c:if>
+
+		        <c:if test="${user.result_type == 8 }">
+				<div class="userTypeCard-back8">
+				<div class="userType">
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
 		        </div>
 		        </c:if>
 

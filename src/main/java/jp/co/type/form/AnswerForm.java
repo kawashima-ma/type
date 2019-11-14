@@ -6,7 +6,6 @@ public class AnswerForm {
 	private String[] create_ans;
 	private String[] volunteer_ans;
 
-
 	public String[] getDrive_ans() {
 		return drive_ans;
 	}
@@ -31,6 +30,7 @@ public class AnswerForm {
 	public void setVolunteer_ans(String[] volunteer_ans) {
 		this.volunteer_ans = volunteer_ans;
 	}
+
 
 
 }

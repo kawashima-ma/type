@@ -33,7 +33,11 @@ public class QuestionController {
 		List<AnswerDto> answers = answerService.getAnswer();
 		model.addAttribute("answerText" , answers );
 		model.addAttribute("AnswerForm" , new AnswerForm() );
-		model.addAttribute("AnswerCheck", getRadio());
+
+		model.addAttribute("Check1", getRadio1());
+		model.addAttribute("Check2", getRadio2());
+		model.addAttribute("Check3", getRadio3());
+		model.addAttribute("Check4", getRadio4());
 		return "question";
 	}
 
@@ -47,17 +51,12 @@ public class QuestionController {
 		int createScore = 0;
 		int volunteerScore = 0;
 
-		String drive = "A";
-		String analyze = "B";
-		String create = "C";
-		String volunteer = "D";
-//
-//		int[] drive_ans = form.getDrive_ans();
-//		int[] analyze_ans = form.getAnalyze_ans();
-//		int[] create_ans = form.getCreate_ans();
-//		int[] volunteer_ans = form.getVolunteer_ans();
-//
-////		配列の中身を4つそれぞれ加算する
+		String[] drive_ans = form.getDrive_ans();
+		String[] analyze_ans = form.getAnalyze_ans();
+		String[] create_ans = form.getCreate_ans();
+		String[] volunteer_ans = form.getVolunteer_ans();
+
+//		配列の中身を4つそれぞれ加算する
 //		for(int i =0; i<=drive_ans.length; i++) {
 //			driveScore += drive_ans[i];
 //		}
@@ -73,19 +72,36 @@ public class QuestionController {
 //		for(int i =0; i<=volunteer_ans.length; i++) {
 //			volunteerScore += volunteer_ans[i];
 //		}
-//
-//		ResultAnswerService.resultAnswerService(driveScore,analyzeScore,createScore,volunteerScore);
-//
-		model.addAttribute("Check", getRadio());
 
+		ResultAnswerService.resultAnswerService(driveScore,analyzeScore,createScore,volunteerScore);
+
+		model.addAttribute("Check1", getRadio1());
+		model.addAttribute("Check2", getRadio2());
+		model.addAttribute("Check3", getRadio3());
+		model.addAttribute("Check4", getRadio4());
 	}
-    private List<String> getRadio() {
+
+	private List<String> getRadio1() {
         List<String> list = new LinkedList<>();
         list.add("A");
-        list.add("B");
-        list.add("C");
-        list.add("D");
         return list;
     }
 
+    private List<String> getRadio2() {
+        List<String> list = new LinkedList<>();
+        list.add("B");
+        return list;
+    }
+
+    private List<String> getRadio3() {
+        List<String> list = new LinkedList<>();
+        list.add("C");
+        return list;
+    }
+
+    private List<String> getRadio4() {
+        List<String> list = new LinkedList<>();
+        list.add("D");
+        return list;
+    }
 }

@@ -1,5 +1,6 @@
 package jp.co.type.controller;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,27 +52,33 @@ public class QuestionController {
 		int createScore = 0;
 		int volunteerScore = 0;
 
-//		String[] drive_ans = form.getDrive_ans();
-//		String[] analyze_ans = form.getAnalyze_ans();
-//		String[] create_ans = form.getCreate_ans();
-//		String[] volunteer_ans = form.getVolunteer_ans();
-//
+		List<String> drive_ans = form.getDrive_ans();
+		List<String> analyze_ans = form.getAnalyze_ans();
+		List<String> create_ans = form.getCreate_ans();
+		List<String> volunteer_ans = form.getVolunteer_ans();
+
+		List<Integer> int_drive_ans = changeToInt(drive_ans);
+		List<Integer> int_analyze_ans = changeToInt(analyze_ans);
+		List<Integer> int_create_ans = changeToInt(create_ans);
+		List<Integer> int_volunteer_ans = changeToInt(volunteer_ans);
+
+
 //		配列の中身を4つそれぞれ加算する
-//		for(int i =0; i<=drive_ans.length; i++) {
-//			driveScore += drive_ans[i];
-//		}
-//
-//		for(int i =0; i<=analyze_ans.length; i++) {
-//			analyzeScore += analyze_ans[i];
-//		}
-//
-//		for(int i =0; i<=create_ans.length; i++) {
-//			createScore += create_ans[i];
-//		}
-//
-//		for(int i =0; i<=volunteer_ans.length; i++) {
-//			volunteerScore += volunteer_ans[i];
-//		}
+		for(int i =0; i<=int_drive_ans.size(); i++) {
+			driveScore += int_drive_ans.get(i);
+		}
+
+		for(int i =0; i<=int_analyze_ans.size(); i++) {
+			analyzeScore += int_analyze_ans.get(i);
+		}
+
+		for(int i =0; i<=int_create_ans.size(); i++) {
+			createScore += int_create_ans.get(i);
+		}
+
+		for(int i =0; i<=int_volunteer_ans.size(); i++) {
+			volunteerScore += int_volunteer_ans.get(i);
+		}
 
 		ResultAnswerService.resultAnswerService(driveScore,analyzeScore,createScore,volunteerScore);
 
@@ -82,26 +89,34 @@ public class QuestionController {
 	}
 
 	private List<String> getRadio1() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("A");
         return list;
     }
 
     private List<String> getRadio2() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("B");
         return list;
     }
 
     private List<String> getRadio3() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("C");
         return list;
     }
 
     private List<String> getRadio4() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("D");
         return list;
+    }
+
+    private List<Integer> changeToInt(List<String> type_ans) {
+    	List<Integer> x = new ArrayList<Integer>();
+        for (int i = 0; i < type_ans.size(); i++) {
+            x.add(Integer.parseInt(type_ans.get(i)));
+        }
+        return x;
     }
 }

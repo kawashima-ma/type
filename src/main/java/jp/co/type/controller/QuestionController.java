@@ -34,10 +34,10 @@ public class QuestionController {
 		model.addAttribute("answerText" , answers );
 		model.addAttribute("AnswerForm" , new AnswerForm() );
 
-		model.addAttribute("Check1", getRadio1());
-		model.addAttribute("Check2", getRadio2());
-		model.addAttribute("Check3", getRadio3());
-		model.addAttribute("Check4", getRadio4());
+		model.addAttribute("ListA", getRadio1());
+		model.addAttribute("ListB", getRadio2());
+		model.addAttribute("ListC", getRadio3());
+		model.addAttribute("ListD", getRadio4());
 		return "question";
 	}
 
@@ -51,11 +51,11 @@ public class QuestionController {
 		int createScore = 0;
 		int volunteerScore = 0;
 
-		String[] drive_ans = form.getDrive_ans();
-		String[] analyze_ans = form.getAnalyze_ans();
-		String[] create_ans = form.getCreate_ans();
-		String[] volunteer_ans = form.getVolunteer_ans();
-
+//		String[] drive_ans = form.getDrive_ans();
+//		String[] analyze_ans = form.getAnalyze_ans();
+//		String[] create_ans = form.getCreate_ans();
+//		String[] volunteer_ans = form.getVolunteer_ans();
+//
 //		配列の中身を4つそれぞれ加算する
 //		for(int i =0; i<=drive_ans.length; i++) {
 //			driveScore += drive_ans[i];
@@ -75,10 +75,10 @@ public class QuestionController {
 
 		ResultAnswerService.resultAnswerService(driveScore,analyzeScore,createScore,volunteerScore);
 
-		model.addAttribute("Check1", getRadio1());
-		model.addAttribute("Check2", getRadio2());
-		model.addAttribute("Check3", getRadio3());
-		model.addAttribute("Check4", getRadio4());
+		model.addAttribute("ListA", getRadio1());
+		model.addAttribute("ListB", getRadio2());
+		model.addAttribute("ListC", getRadio3());
+		model.addAttribute("ListD", getRadio4());
 	}
 
 	private List<String> getRadio1() {

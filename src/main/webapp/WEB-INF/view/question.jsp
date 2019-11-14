@@ -26,10 +26,10 @@
 	</c:forEach>
 
 	<form:form modelAttribute="AnswerForm">
-		<form:radiobuttons path="drive_ans[<%=i %>]" items="${Check1}" value="2" />
-		<form:radiobuttons path="analyze_ans[<%=i %>]" items="${Check2}" value="2" />
-		<form:radiobuttons path="create_ans[<%=i %>]" items="${Check3}" value="2" />
-		<form:radiobuttons path="volunteer_ans[<%=i %>]" items="${Check4}" value="2" />
+		<form:radiobuttons path="drive_ans[<%=i %>]" items="${ListA}" value="2" />
+		<form:radiobuttons path="analyze_ans[<%=i %>]" items="${ListB}" value="2" />
+		<form:radiobuttons path="create_ans[<%=i %>]" items="${ListC}" value="2" />
+		<form:radiobuttons path="volunteer_ans[<%=i %>]" items="${ListD}" value="2" />
 	</form:form>
 	<br>
 <% i++; %>

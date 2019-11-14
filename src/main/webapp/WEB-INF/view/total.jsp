@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+<link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
 <link href="<c:url value="/resources/css/total.css" />" rel="stylesheet">
 <title>結果一覧</title>
 </head>
@@ -19,17 +21,61 @@
 				<div class="userTypeCard-front">
 					<div class="userName">
 					<c:out value="${user.name}" /></div>
+					<div class="userLoginId">
+					@<c:out value="${user.login_id}" /></div>
 				</div>
-				<div class="userTypeCard-back">
-				<div class="userType">タイプ：
+				<c:if test="${user.result_type == 1 }">
+				<div class="userTypeCard-back1">
+				<div class="userType">
 				<c:forEach items="${type_names }" var="type">
 		        	<c:if test="${type.id == user.result_type}">
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
 		        <input type="hidden" name="user_id" value="${user.id }">
-		        <input type="submit" value="結果一覧">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
+		        </c:if>
+
+		        <c:if test="${user.result_type == 2 }">
+				<div class="userTypeCard-back2">
+				<div class="userType">
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
+		        </div>
+		        </c:if>
+
+		        <c:if test="${user.result_type == 3 }">
+				<div class="userTypeCard-back3">
+				<div class="userType">
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
+		        </div>
+		        </c:if>
+
+		        <c:if test="${user.result_type == 4 }">
+				<div class="userTypeCard-back4">
+				<div class="userType">
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
+		        </div>
+		        </c:if>
+
         	</div>
         </div>
 	</c:forEach>

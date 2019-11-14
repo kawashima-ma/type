@@ -13,15 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import jp.co.type.dto.UserDto;
 
 
 @WebFilter(urlPatterns= {"/*"}, filterName="loginFilter")
 public class LoginFilter implements Filter {
-	@Autowired
-	private HttpSession session;
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -35,6 +31,7 @@ public class LoginFilter implements Filter {
 		UserDto loginUser = (UserDto) ((HttpServletRequest) request).getSession().getAttribute("loginUser");
 		if(!(path.equals("/login")||path.equals("/signup"))&& !(path.contains("/css"))) {
 		 	if(loginUser == null) {
+		 		HttpSession session = ((HttpServletRequest) request).getSession();
 		 		session.setAttribute("errorMessage", "ログインしてください");
 		 		((HttpServletResponse) response).sendRedirect(((HttpServletRequest)request).getContextPath() +"/login");
 		 		return;

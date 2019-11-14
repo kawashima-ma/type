@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.type.mapper.AnswerMapper">
+
+    <resultMap id="AnswerResult" type="jp.co.type.entity.Answer">
+        <result column="id" property="id" />
+        <result column="question_id" property="question_id" />
+        <result column="drive_ans" property="drive_ans" />
+        <result column="analyze_ans" property="analyze_ans" />
+        <result column="create_ans" property="create_ans" />
+        <result column="volunteer_ans" property="volunteer_ans" />
+    </resultMap>
+
+    <select id="getAnswer" resultMap="AnswerResult">
+        select id, question_id, drive_ans, analyze_ans, create_ans, volunteer_ans
+        from answers
+    </select>
+</mapper>

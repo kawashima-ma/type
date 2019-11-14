@@ -167,12 +167,6 @@
     </div>
 
 
-
-
-
-
-
-
     <script>
     var ctx = document.getElementById("ChartId").getContext("2d");
     var chart = new Chart(ctx, {
@@ -202,5 +196,7 @@
        }
     });
     </script>
+
+
 </body>
 </html>

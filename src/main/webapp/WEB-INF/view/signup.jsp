@@ -7,21 +7,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/signup.css" />" rel="stylesheet">
 <title>ユーザー登録</title>
 </head>
 <body>
 
 		<form:form modelAttribute="signupForm" class="form" action="${pageContext.request.contextPath}/signup" method="post">
-		<div><form:errors path="*"  /></div>
-			<form:label path="login_id">ログインID</form:label>
-			<div><form:input path="login_id" /></div>
+		<div id="signup">
+			<p class="form-title">ユーザー登録</p>
+			<div class="error"><form:errors path="*"  /></div>
+				<form:label type="login_id"  path="login_id">ログインID</form:label>
+				<p class="loginId"><form:input type="login_id" path="login_id" /></p>
 
-			<form:label path="name">名前</form:label>
-	        <div><form:input path="name" /></div>
+				<form:label type="name"  path="name">名前</form:label>
+		        <p class="name"><form:input type="name" path="name" /></p>
 
-	        <form:label path="password">パスワード</form:label>
-	        <div><form:password path="password" /></div>
-	        <input type="submit" value="登録">
+		        <form:label type="password" path="password">パスワード</form:label>
+		        <p class="password"><form:password  path="password" /></p>
+
+		        <p class="submit"><input type="submit" value="登録"></p>
+
+		        <a href="login">戻る</a>
+		</div>
 		</form:form>
 </body>
 </html>
+
+
+

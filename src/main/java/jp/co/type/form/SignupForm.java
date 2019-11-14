@@ -17,16 +17,15 @@ public class SignupForm {
 	@NotEmpty(message = "ログインIDを入力してください",groups = Group1.class)
 	@Size(min = 6, max = 20,message = "ログインIDを、6~20文字以下で入力して下さい",groups = Group2.class)
 	@Pattern(regexp = "[a-zA-Z0-9]+",message = "ログインIDを半角英数字で入力して下さい",groups = Group3.class)
-
 	private String login_id;
-	@NotEmpty(message = "名前を入力してください")
-	@Size(min = 6, max = 20,message = "名前を、6~20文字以下で入力して下さい")
-	@Pattern(regexp = "[a-zA-Z0-9]+",message = "名前を半角英数字で入力して下さい")
 
+	@NotEmpty(message = "名前を入力してください",groups = Group1.class)
+	@Size(max = 20,message = "名前を、20文字以下で入力して下さい",groups = Group2.class)
 	private String name;
-	@NotEmpty(message = "パスワードを入力してください")
-	@Size(min = 6, max = 20,message = "パスワードを、6~20文字以下で入力して下さい")
-	@Pattern(regexp = "[a-zA-Z0-9]+",message = "パスワードを半角英数字で入力して下さい")
+
+	@NotEmpty(message = "パスワードを入力してください,groups = Group1.class")
+	@Size(min = 6, max = 20,message = "パスワードを、6~20文字以下で入力して下さい",groups = Group2.class)
+	//@Pattern(regexp = "[alhinc1120]+")
 	private String password;
 
 

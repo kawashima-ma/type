@@ -29,6 +29,13 @@ public class SignupForm {
 	private String password;
 
 
+	@NotEmpty(message = "確認用パスワードを入力してください,groups = Group1.class")
+//	@ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
+	@Size(min = 6, max = 20,message = "確認用パスワードを、入力して下さい",groups = Group2.class)
+	@Pattern(regexp = "[a-zA-Z0-9]+")
+	private String confirmPassword;
+
+
 	public String getLogin_id() {
 		return login_id;
 	}

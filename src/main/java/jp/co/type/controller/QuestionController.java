@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import jp.co.type.dto.AnswerDto;
 import jp.co.type.dto.QuestionDto;
 import jp.co.type.dto.UserDto;
+import jp.co.type.dto.UserResultDto;
 import jp.co.type.form.AnswerForm;
 import jp.co.type.service.AnswerService;
 import jp.co.type.service.QuestionService;
@@ -53,8 +54,8 @@ public class QuestionController {
 	@Autowired
 	private HttpSession session;
 
-	@RequestMapping(value = "/a", method = RequestMethod.POST)
-	public String getcheckInfo(@ModelAttribute AnswerForm form, Model model) {
+	@RequestMapping(value = "/question", method = RequestMethod.POST)
+	public String getcheckInfo( @ModelAttribute AnswerForm form, Model model) {
 		int driveScore = 0;
 		int analyzeScore = 0;
 		int createScore = 0;
@@ -62,6 +63,21 @@ public class QuestionController {
 
 		List<String> point2 = form.getPoint2lists();
 		List<String> point1 = form.getPoint1lists();
+
+		if(point2 == null || point1 == null) {
+			model.addAttribute("errorMessage", "無回答の質問があります");
+			List<QuestionDto> questions = questionService.getQuestion();
+			model.addAttribute("questionText" , questions );
+			List<AnswerDto> answers = answerService.getAnswer();
+			model.addAttribute("answerText" , answers );
+			model.addAttribute("AnswerForm",form);
+			model.addAttribute("ListA", getRadio1());
+			model.addAttribute("ListB", getRadio2());
+			model.addAttribute("ListC", getRadio3());
+			model.addAttribute("ListD", getRadio4());
+
+			return "question";
+		}
 
 
 //		配列の中身を4つそれぞれ加算する
@@ -97,6 +113,22 @@ public class QuestionController {
 
 
 
+		 //全問回答してるかチェック
+		int totalScore = driveScore + analyzeScore + createScore + volunteerScore;
+		if(totalScore != 30) {
+			model.addAttribute("errorMessage", "無回答の質問があります");
+			List<QuestionDto> questions = questionService.getQuestion();
+			model.addAttribute("questionText" , questions );
+			List<AnswerDto> answers = answerService.getAnswer();
+			model.addAttribute("answerText" , answers );
+			model.addAttribute("AnswerForm",form);
+			model.addAttribute("ListA", getRadio1());
+			model.addAttribute("ListB", getRadio2());
+			model.addAttribute("ListC", getRadio3());
+			model.addAttribute("ListD", getRadio4());
+			return "question";
+		}
+
 		UserDto loginUser =(UserDto)session.getAttribute("loginUser");
 		int loginUser_id = loginUser.getId();
 		ResultAnswerService.resultAnswerService(loginUser_id,driveScore,analyzeScore,createScore,volunteerScore);
@@ -105,6 +137,7 @@ public class QuestionController {
 		model.addAttribute("ListB", getRadio2());
 		model.addAttribute("ListC", getRadio3());
 		model.addAttribute("ListD", getRadio4());
+
 
 //		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
 
@@ -116,6 +149,10 @@ public class QuestionController {
 
 
 //		model.addAttribute("userResult", userResult);
+
+		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+		model.addAttribute("userResult", userResult);
+
 
 		return "result";
 	}

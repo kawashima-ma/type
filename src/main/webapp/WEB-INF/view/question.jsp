@@ -13,7 +13,13 @@
 <body>
 <%!int i = 0; %>
 <h1>モチベーションタイプ診断（全${questionText.size()}問）</h1>
-<form:form modelAttribute="AnswerForm"  action="${pageContext.request.contextPath}/a" method="post">
+			<div class="error">
+				<c:if test="${not empty errorMessage}">
+					<c:out value="${errorMessage}" />
+				</c:if>
+			</div>
+
+<form:form modelAttribute="AnswerForm"  action="${pageContext.request.contextPath}/question" method="post">
 <c:forEach items="${questionText}" var="question">
 	<h2>第${question.id}問.${question.question_text}</h2>
 

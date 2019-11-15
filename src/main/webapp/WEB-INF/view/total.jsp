@@ -38,6 +38,10 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <div class="botton">
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
+		        </div>
 		        </div>
 		        </c:if>
 
@@ -49,6 +53,8 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -60,6 +66,8 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -71,6 +79,8 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -82,6 +92,8 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -93,6 +105,8 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -104,6 +118,8 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
 		        </div>
 		        </c:if>
 
@@ -115,6 +131,10 @@
 		        		<c:out value="${type.type_name}"/>
 		        	</c:if>
 		        </c:forEach></div>
+		        <div class="button">
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <p class="submit"><input type="submit" value="結果一覧"></p>
+		        </div>
 		        </div>
 		        </c:if>
 

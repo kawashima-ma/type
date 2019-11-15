@@ -17,6 +17,8 @@
 
 	<h2>あなたは型です。</h2>
 
+	<c:out value="${users.getDrivescore()}" />
+
 	<div class="table">
     <table border="3">
 	    <tr>
@@ -174,7 +176,7 @@
     data:{
     	labels:["ドライブ","ボランティア","アナライズ","クリエイト"],
     	datasets:[{
-    		data:[6,10,6,8],
+    		data:["${userResult.getDrivescore()}","${userResult.getVolunteerscore()}","${userResult.getAnalyzescore()}","${userResult.getCreatescore()}"],
     		backgroundColor: ['rgba(255, 80, 80, .5)', 'rgba(196, 255, 74, .5)', 'rgba(128, 128, 255, .5)', 'rgba(255, 255, 30, .5)']
     	}]
     },

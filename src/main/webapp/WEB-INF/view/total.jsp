@@ -11,21 +11,29 @@
 <title>結果一覧</title>
 </head>
 <body>
+	<div id="total">
+	<form action="/userPast" class="person">
 	<c:forEach items="${users}" var="user" >
-		<div>
-		<form action="/userPast" class="person">
-		<span class="user-elements">名前：
-		<c:out value="${user.name}" /></span>
-		<span class="user-elements">タイプ：</span>
-		<c:forEach items="${type_names }" var="type">
-        	<c:if test="${type.id == user.result_type}">
-        		<c:out value="${type.type_name}"/>
-        	</c:if>
-        </c:forEach>
-        <input type="hidden" name="user_id" value="${user.id }">
-        <input type="submit" value="詳細">
-        </form>
+		<div class="userTypeCard">
+			<div class="userTypeCard-inner">
+				<div class="userTypeCard-front">
+					<div class="userName">
+					<c:out value="${user.name}" /></div>
+				</div>
+				<div class="userTypeCard-back">
+				<div class="userType">タイプ：
+				<c:forEach items="${type_names }" var="type">
+		        	<c:if test="${type.id == user.result_type}">
+		        		<c:out value="${type.type_name}"/>
+		        	</c:if>
+		        </c:forEach></div>
+		        <input type="hidden" name="user_id" value="${user.id }">
+		        <input type="submit" value="結果一覧">
+		        </div>
+        	</div>
         </div>
 	</c:forEach>
+	</form>
+	</div>
 </body>
 </html>

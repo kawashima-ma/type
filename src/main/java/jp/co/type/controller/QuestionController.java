@@ -35,9 +35,7 @@ public class QuestionController {
 		model.addAttribute("AnswerForm" , new AnswerForm() );
 
 		model.addAttribute("ListA", getRadio1());
-		model.addAttribute("ListB", getRadio2());
-		model.addAttribute("ListC", getRadio3());
-		model.addAttribute("ListD", getRadio4());
+
 		return "question";
 	}
 
@@ -76,32 +74,16 @@ public class QuestionController {
 		ResultAnswerService.resultAnswerService(driveScore,analyzeScore,createScore,volunteerScore);
 
 		model.addAttribute("ListA", getRadio1());
-		model.addAttribute("ListB", getRadio2());
-		model.addAttribute("ListC", getRadio3());
-		model.addAttribute("ListD", getRadio4());
+
 	}
 
 	private List<String> getRadio1() {
         List<String> list = new LinkedList<>();
         list.add("A");
-        return list;
-    }
-
-    private List<String> getRadio2() {
-        List<String> list = new LinkedList<>();
         list.add("B");
-        return list;
-    }
-
-    private List<String> getRadio3() {
-        List<String> list = new LinkedList<>();
         list.add("C");
-        return list;
-    }
-
-    private List<String> getRadio4() {
-        List<String> list = new LinkedList<>();
         list.add("D");
         return list;
     }
+
 }

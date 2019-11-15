@@ -11,10 +11,11 @@
 <title>モチベーションタイプ診断</title>
 </head>
 <body>
-<%!int i = 0; %>
+
 <h1>モチベーションタイプ診断（全${questionText.size()}問）</h1>
 
 <c:forEach items="${questionText}" var="question">
+
 	<h2>第${question.id}問.${question.question_text}</h2>
 	<c:forEach items="${answerText}" var="answer">
 		<c:if test="${question.id == answer.question_id }">
@@ -26,13 +27,12 @@
 	</c:forEach>
 
 	<form:form modelAttribute="AnswerForm">
-		<form:radiobuttons path="drive_ans[<%=i %>]" items="${ListA}" value="2" />
-		<form:radiobuttons path="analyze_ans[<%=i %>]" items="${ListB}" value="2" />
-		<form:radiobuttons path="create_ans[<%=i %>]" items="${ListC}" value="2" />
-		<form:radiobuttons path="volunteer_ans[<%=i %>]" items="${ListD}" value="2" />
+		<form:select path="point2_answer" items="${ListA}" value="2" />
+		<form:select path="point1_answer" items="${ListA}" value="1" /><input type="submit">
 	</form:form>
+
 	<br>
-<% i++; %>
+
 
 </c:forEach>
 

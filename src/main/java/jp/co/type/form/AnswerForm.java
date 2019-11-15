@@ -1,35 +1,24 @@
 package jp.co.type.form;
 
-public class AnswerForm {
-	private String[] drive_ans;
-	private String[] analyze_ans;
-	private String[] create_ans;
-	private String[] volunteer_ans;
+import java.util.Map;
 
-	public String[] getDrive_ans() {
-		return drive_ans;
+public class AnswerForm {
+	private Map<String, String> point2_answer;
+	private Map<String, String> point1_answer;
+
+	public Map<String, String> getPoint2_answer() {
+		return point2_answer;
 	}
-	public void setDrive_ans(String[] drive_ans) {
-		this.drive_ans = drive_ans;
+	public void setPoint2_answer(Map<String, String> point2_answer) {
+		this.point2_answer = point2_answer;
 	}
-	public String[] getAnalyze_ans() {
-		return analyze_ans;
+	public Map<String, String> getPoint1_answer() {
+		return point1_answer;
 	}
-	public void setAnalyze_ans(String[] analyze_ans) {
-		this.analyze_ans = analyze_ans;
+	public void setPoint1_answer(Map<String, String> point1_answer) {
+		this.point1_answer = point1_answer;
 	}
-	public String[] getCreate_ans() {
-		return create_ans;
-	}
-	public void setCreate_ans(String[] create_ans) {
-		this.create_ans = create_ans;
-	}
-	public String[] getVolunteer_ans() {
-		return volunteer_ans;
-	}
-	public void setVolunteer_ans(String[] volunteer_ans) {
-		this.volunteer_ans = volunteer_ans;
-	}
+
 
 
 

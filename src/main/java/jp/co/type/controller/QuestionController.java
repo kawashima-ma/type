@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import jp.co.type.dto.AnswerDto;
 import jp.co.type.dto.QuestionDto;
 import jp.co.type.dto.UserDto;
+import jp.co.type.dto.UserResultDto;
 import jp.co.type.form.AnswerForm;
 import jp.co.type.service.AnswerService;
 import jp.co.type.service.QuestionService;
 import jp.co.type.service.ResultAnswerService;
+import jp.co.type.service.UserResultService;
 
 @Controller
 public class QuestionController {
@@ -27,7 +29,8 @@ public class QuestionController {
 	private QuestionService questionService;
 	@Autowired
 	private AnswerService answerService;
-
+	@Autowired
+	private UserResultService resultService;
 
 	@RequestMapping(value= "/question", method = RequestMethod.GET)
 	public String question(Model model){
@@ -106,6 +109,9 @@ public class QuestionController {
 		model.addAttribute("ListB", getRadio2());
 		model.addAttribute("ListC", getRadio3());
 		model.addAttribute("ListD", getRadio4());
+
+		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+		model.addAttribute("userResult", userResult);
 
 		return "result";
 	}

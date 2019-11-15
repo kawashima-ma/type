@@ -11,7 +11,7 @@ public class ResultAnswerService {
 	@Autowired
 	private ResultAnswerMapper resultAnswerMapper;
 
-	public void resultAnswerService(int driveScore, int analyzeScore, int createScore, int volunteerScore) {
-		resultAnswerMapper.insert(driveScore,analyzeScore,createScore,volunteerScore);
+	public void resultAnswerService(int user_id, int driveScore, int analyzeScore, int createScore, int volunteerScore) {
+		resultAnswerMapper.insert(user_id, driveScore,analyzeScore,createScore,volunteerScore);
 	}
 }

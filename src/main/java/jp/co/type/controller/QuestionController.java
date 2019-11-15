@@ -19,6 +19,7 @@ import jp.co.type.form.AnswerForm;
 import jp.co.type.service.AnswerService;
 import jp.co.type.service.QuestionService;
 import jp.co.type.service.ResultAnswerService;
+import jp.co.type.service.UserResultService;
 
 @Controller
 public class QuestionController {
@@ -27,6 +28,8 @@ public class QuestionController {
 	private QuestionService questionService;
 	@Autowired
 	private AnswerService answerService;
+	@Autowired
+	private UserResultService resultService;
 
 
 	@RequestMapping(value= "/question", method = RequestMethod.GET)
@@ -93,10 +96,6 @@ public class QuestionController {
 		}
 
 
-		System.out.println(driveScore);
-		System.out.println(analyzeScore);
-		System.out.println(createScore);
-		System.out.println(volunteerScore);
 
 		UserDto loginUser =(UserDto)session.getAttribute("loginUser");
 		int loginUser_id = loginUser.getId();
@@ -106,6 +105,17 @@ public class QuestionController {
 		model.addAttribute("ListB", getRadio2());
 		model.addAttribute("ListC", getRadio3());
 		model.addAttribute("ListD", getRadio4());
+
+//		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+
+//		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+
+
+//		System.out.println(userResult.getDrivescore());
+//		System.out.println(loginUser.getId());
+
+
+//		model.addAttribute("userResult", userResult);
 
 		return "result";
 	}

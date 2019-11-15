@@ -1,12 +1,10 @@
 package jp.co.type.form;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import jp.co.type.form.validator.ConfirmPassword;
-
 import javax.validation.GroupSequence;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 public class SignupForm {
@@ -32,7 +30,7 @@ public class SignupForm {
 	private String password;
 
 	@NotEmpty(message = "確認用パスワードを入力してください,groups = Group1.class")
-	@ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
+//	@ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
 	@Size(min = 6, max = 20,message = "確認用パスワードを、入力して下さい",groups = Group2.class)
 	@Pattern(regexp = "[a-zA-Z0-9]+")
 	private String confirmPassword;

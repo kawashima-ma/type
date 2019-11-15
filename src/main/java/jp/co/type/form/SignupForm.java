@@ -8,7 +8,7 @@ import javax.validation.GroupSequence;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
+@ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
 public class SignupForm {
 	public interface Group1 {}
 	public interface Group2 {}
@@ -26,13 +26,12 @@ public class SignupForm {
 	@Size(max = 20,message = "名前を、20文字以下で入力して下さい",groups = Group2.class)
 	private String name;
 
-	@NotEmpty(message = "パスワードを入力してください,groups = Group1.class")
+	@NotEmpty(message = "パスワードを入力してください",groups = Group1.class)
 	@Size(min = 6, max = 20,message = "パスワードを、6~20文字以下で入力して下さい",groups = Group2.class)
 	@Pattern(regexp = "[a-zA-Z0-9]+")
 	private String password;
 
-	@NotEmpty(message = "確認用パスワードを入力してください,groups = Group1.class")
-	@ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
+	@NotEmpty(message = "確認用パスワードを入力してください",groups = Group1.class)
 	@Size(min = 6, max = 20,message = "確認用パスワードを、入力して下さい",groups = Group2.class)
 	@Pattern(regexp = "[a-zA-Z0-9]+")
 	private String confirmPassword;

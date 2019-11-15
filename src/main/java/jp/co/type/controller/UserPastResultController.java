@@ -33,9 +33,9 @@ public class UserPastResultController {
 
 		UserResultDto userResult = resultService.getUserResult(1);
 
-System.out.println(userResult.getDrivescore());
 
-//		model.addAttribute("editForm", editFormFactory.create(editUser));
+
+		model.addAttribute("userResult", userResult);
 //		model.addAttribute("isShowPulldown", isShowPulldown(managementForm.getIdAsInteger(),
 //				((UserDto) session.getAttribute("loginUser")).getId()));
 		return "pastuserresults";

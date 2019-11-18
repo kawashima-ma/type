@@ -13,7 +13,8 @@ public class ResultAnswerService {
 
 	public void resultAnswerService(int user_id, int driveScore, int analyzeScore, int createScore, int volunteerScore) {
 		resultAnswerMapper.insert(user_id, driveScore,analyzeScore,createScore,volunteerScore);
-
-
+	}
+	public void registerUserType(int user_id, int result_num) {
+		resultAnswerMapper.update(user_id,result_num);
 	}
 }

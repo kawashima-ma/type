@@ -31,6 +31,8 @@ public class QuestionController {
 	private AnswerService answerService;
 	@Autowired
 	private UserResultService resultService;
+	@Autowired
+	private AnswerForm AnswerForm;
 
 
 	@RequestMapping(value= "/question", method = RequestMethod.GET)
@@ -132,6 +134,15 @@ public class QuestionController {
 		UserDto loginUser =(UserDto)session.getAttribute("loginUser");
 		int loginUser_id = loginUser.getId();
 		ResultAnswerService.resultAnswerService(loginUser_id,driveScore,analyzeScore,createScore,volunteerScore);
+
+		AnswerForm TypeA = AnswerForm.TypeDiscriminateA(driveScore,volunteerScore);
+		AnswerForm TypeB = AnswerForm.TypeDiscriminateB(createScore,analyzeScore);
+
+		String result_type = AnswerForm. TypeDiscriminate(TypeA,TypeB);
+
+		int result_num = AnswerForm.TypeDiscriminate_num(result_type);
+
+		ResultAnswerService.registerUserType(loginUser_id,result_num);
 
 		model.addAttribute("ListA", getRadio1());
 		model.addAttribute("ListB", getRadio2());

@@ -33,4 +33,12 @@
 		CURRENT_TIMESTAMP
 	)
 </insert>
+
+<update id="update" >
+	update users
+		set
+			result_type = #{result_num}
+		where
+			id = #{user_id}
+</update>
 </mapper>

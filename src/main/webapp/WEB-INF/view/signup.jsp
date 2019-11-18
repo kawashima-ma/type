@@ -25,6 +25,10 @@
 		        <form:label type="password" path="password">パスワード</form:label>
 		        <p class="password"><form:password  path="password" /></p>
 
+		        <form:label type="confirmPassword" path="confirmPassword">確認用パスワード</form:label>
+		        <p class="confirmPassword"><form:password  path="confirmPassword" /></p>
+
+
 		        <p class="submit"><input type="submit" value="登録"></p>
 
 		        <a href="login">戻る</a>

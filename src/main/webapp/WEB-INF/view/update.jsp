@@ -12,7 +12,12 @@
 		<form:form modelAttribute="updateForm" class="form" action="${pageContext.request.contextPath}/update" method="post">
 		<div id="update">
 			<p class="form-title">ユーザー登録</p>
-			<div class="error"><form:errors path="*"  /></div>
+			<div class="error"><form:errors path="login_id"  />
+			<div><form:errors path="name"></form:errors></div>
+			<div><form:errors path="password"></form:errors></div>
+			<div><form:errors path="ValidPassword"></form:errors></div>
+			<div><form:errors path="confirm_password"></form:errors></div>
+			</div>
 			<c:if test="${not empty errorMessage}">
 				<c:out value="${errorMessage}" />
 				<c:remove var="errorMessage" scope="session" />
@@ -26,7 +31,7 @@
 		        <form:label type="password" path="password">パスワード</form:label>
 		        <p class="password"><form:password  path="password" /></p>
 
-		        <form:label type="confirm_password" path="confirm_password">パスワード</form:label>
+		        <form:label type="confirm_password" path="confirm_password">確認用パスワード</form:label>
 		        <p class="confirm_password"><form:password  path="confirm_password" /></p>
 
 

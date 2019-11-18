@@ -29,8 +29,7 @@ public class SignupForm {
 	private String password;
 
 
-	@NotEmpty(message = "確認用パスワードを入力してください,groups = Group1.class")
-//	@ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
+	@NotEmpty(message = "確認用パスワードを入力してください",groups = Group1.class)
 	@Size(min = 6, max = 20,message = "確認用パスワードを、入力して下さい",groups = Group2.class)
 	@Pattern(regexp = "[a-zA-Z0-9]+")
 	private String confirmPassword;
@@ -54,6 +53,13 @@ public class SignupForm {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
 
 
 }

@@ -30,9 +30,14 @@ public class UserResultController {
 //		// 編集対象のユーザー情報を取得する
 
 
-		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+//		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+
+		UserResultDto userResult = resultService.getUserResult(2);
+
+
 
 System.out.println(userResult.getDrivescore());
+System.out.println(loginUser.getId());
 
 		model.addAttribute("userResult", userResult);
 		model.addAttribute("loginUser", loginUser);

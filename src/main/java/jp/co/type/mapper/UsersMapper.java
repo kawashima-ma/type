@@ -14,4 +14,6 @@ public interface UsersMapper {
 
 	void signs(User entity);
 
+	void update(User entity);
+
 }

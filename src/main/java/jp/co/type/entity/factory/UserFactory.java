@@ -18,4 +18,14 @@ public class UserFactory {
 				null
 				);
 	}
+
+	public User create(UserDto dto) {
+		return new User(
+				dto.getId(),
+				dto.getLogin_id(),
+				dto.getName(),
+				CipherUtil.encrypt(dto.getPassword()),
+				null
+				);
+	}
 }

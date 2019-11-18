@@ -25,6 +25,7 @@ public class AnswerForm {
 		this.point1lists = point1lists;
 	}
 
+
 	public AnswerForm TypeDiscriminateA(int drive,int volunteer) {
 		AnswerForm TypeDiscriminateA = new AnswerForm();
 		if(drive > volunteer) {
@@ -106,4 +107,5 @@ public class AnswerForm {
 			return num;
 		}
 	}
+
 }

@@ -37,5 +37,16 @@
 		)
 </insert>
 
+<update id="update">
+		update
+			users
+		set
+			login_id = #{login_id},
+			name = #{name},
+			password = #{password}
+		where
+			id =#{id}
+</update>
+
 
 </mapper>

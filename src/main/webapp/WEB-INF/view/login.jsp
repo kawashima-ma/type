@@ -19,8 +19,7 @@
 			<div class="error">
 				<form:errors path="*"  />
 				<c:if test="${not empty errorMessage}">
-					<c:out value="${errorMessage}" />
-					<c:remove var="errorMessage" scope="session" />
+					<div><c:out value="${errorMessage}" /></div>
 				</c:if>
 			</div>
 				<form:label type="login_id" path="login_id">ログインID</form:label>

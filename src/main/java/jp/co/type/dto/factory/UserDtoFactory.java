@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import jp.co.type.dto.UserDto;
 import jp.co.type.entity.User;
 import jp.co.type.form.SignupForm;
+import jp.co.type.form.UpdateForm;
 
 @Component
 public class UserDtoFactory {
@@ -39,6 +40,16 @@ public class UserDtoFactory {
 				signupForm.getLogin_id(),
 				signupForm.getName(),
 				signupForm.getPassword(),
+				null
+				);
+	}
+
+	public UserDto create(UpdateForm updateForm,Integer id) {
+		return new UserDto(
+				id,
+				updateForm.getLogin_id(),
+				updateForm.getName(),
+				updateForm.getPassword(),
 				null
 				);
 		}

@@ -17,4 +17,5 @@ public class AnswerForm {
 	public void setPoint1lists(List<String> point1lists) {
 		this.point1lists = point1lists;
 	}
+
 }

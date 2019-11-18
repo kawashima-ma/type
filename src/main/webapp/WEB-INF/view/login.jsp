@@ -24,6 +24,7 @@
 					 <c:remove var="errorMessage" scope="session" />
 				</c:if>
 			</div>
+
 				<form:label type="login_id" path="login_id">ログインID</form:label>
 				<p class="loginId"><form:input type="login_id" path="login_id" /></p>
 		        <form:label type="password" path="password">パスワード</form:label>

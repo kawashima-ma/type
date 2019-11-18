@@ -15,7 +15,6 @@
 			<div class="error"><form:errors path="login_id"  />
 			<div><form:errors path="name"></form:errors></div>
 			<div><form:errors path="password"></form:errors></div>
-			<div><form:errors path="ValidPassword"></form:errors></div>
 			<div><form:errors path="confirm_password"></form:errors></div>
 			</div>
 			<c:if test="${not empty errorMessage}">

@@ -8,9 +8,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/question.css" />" rel="stylesheet">
 <title>モチベーションタイプ診断</title>
 </head>
 <body>
+<header>
+<ul>
+	<li><a href="#" id="home">Home</a></li>
+	<li><a href="#" id="news">News</a></li>
+	<li><a href="#" id="contact">Contact</a></li>
+	<li><a href="#" id="about">About</a></li>
+	<li><a href="./logout"  id="logout">ログアウト</a></li>
+</ul>
+</header>
+
+
 <%!int i = 0; %>
 <h1>モチベーションタイプ診断（全${questionText.size()}問）</h1>
 			<div class="error">
@@ -20,39 +32,41 @@
 			</div>
 
 <form:form modelAttribute="AnswerForm"  action="${pageContext.request.contextPath}/question" method="post">
+
+
 <c:forEach items="${questionText}" var="question">
-	<h2>第${question.id}問.${question.question_text}</h2>
+<div id="questionAll">
+	<p class="question-title">第${question.id}問<br/>${question.question_text}</p>
 
-
+<div id="question">
 	<c:forEach items="${answerText}" var="answer">
 		<c:if test="${question.id == answer.question_id }">
-			<h3>A.${answer.drive_ans}</h3>
-			<h3>B.${answer.analyze_ans}</h3>
-			<h3>C.${answer.create_ans}</h3>
-			<h3>D.${answer.volunteer_ans}</h3>
+			<div class="question1">
+			<div class="qestion-border"><span class="title">A</span>${answer.drive_ans}</div>
+			<div class="qestion-border"><span class="title">C</span>${answer.create_ans}</div>
+			</div>
+			<div class="question2">
+			<div class="qestion-border"><span class="title">B</span>${answer.analyze_ans}</div>
+			<div class="qestion-border"><span class="title">D</span>${answer.volunteer_ans}</div>
+			</div>
 		</c:if>
-
-
 	</c:forEach>
+</div>
 
-
-
+	<div class="point2"><div class="answer-title">１番当てはまるもの</div>
 		<form:radiobuttons path="point2lists[${question.id}]" items="${ListA}" value="A" />
 		<form:radiobuttons path="point2lists[${question.id}]" items="${ListB}" value="B" />
 		<form:radiobuttons path="point2lists[${question.id}]" items="${ListC}" value="C" />
 		<form:radiobuttons path="point2lists[${question.id}]" items="${ListD}" value="D" />
-
+	</div>
+	<div class="point1"><div class="answer-title">２番目に当てはまるもの</div>
 		<form:radiobuttons path="point1lists[${question.id}]" items="${ListA}" value="A" />
 		<form:radiobuttons path="point1lists[${question.id}]" items="${ListB}" value="B" />
 		<form:radiobuttons path="point1lists[${question.id}]" items="${ListC}" value="C" />
 		<form:radiobuttons path="point1lists[${question.id}]" items="${ListD}" value="D" />
+	</div>
 
-
-
-
-	<br>
-
-
+</div>
 </c:forEach>
 		<input type="hidden" value="point2lists[]">
 		<input type="hidden" value="point1lists[]">

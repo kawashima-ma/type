@@ -12,15 +12,15 @@
 		<title>Welcome</title>
 	</head>
 	<body>
-<div class="cp_navi">
-<div id="cp_sidenav" class="sidenav">
-	<a href="#" id="home">Home</a>
-	<a href="#" id="news">News</a>
-	<a href="#" id="contact">Contact</a>
-	<a href="#" id="about">About</a>
-	<a href="./logout" >ログアウト</a>
-</div>
-</div>
+	<header>
+<ul>
+	<li><a href="#" id="home">Home</a></li>
+	<li><a href="#" id="news">News</a></li>
+	<li><a href="#" id="contact">Contact</a></li>
+	<li><a href="#" id="about">About</a></li>
+	<li><a href="./logout"  id="logout">ログアウト</a></li>
+</ul>
+</header>
 
 
 

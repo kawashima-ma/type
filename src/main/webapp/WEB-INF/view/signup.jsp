@@ -33,7 +33,10 @@
 		        <p class="password"><form:password  path="password" /></p>
 
                 <form:label type="confirmPassword" path="password">パスワード(確認)</form:label>
+				<p class="password"><form:password path="confirmPassword" /></p>
+
 				<p class="confirmPassword"><form:password path="confirmPassword" /></p>
+
 
 		        <p class="submit"><input type="submit" value="登録"></p>
 

@@ -10,12 +10,12 @@
  	<link href="<c:url value="/resources/css/result.css" />" rel="stylesheet">
 </head>
 <body>
-	<div style="height:600px; width:1000px; margin:0 auto;">
+	<div style="height:600px; width:800px; margin:0 auto;">
     	<canvas id="ChartId"></canvas>   <!-- ここがグラフの場所 -->
     </div>
 
 
-	<h2>あなたは型です。</h2>
+	<h2>あなたは<c:out value="${userResult.getType_name()}" />型です。</h2>
 
 	<c:out value="${users.getDrivescore()}" />
 

@@ -87,7 +87,7 @@ input[type="password"]{
   }
 
 /* ボタン枠 */
-  .submit input{
+.submit input{
   font-family: Arial;
   font-weight: bold;
   color: #ffffff;
@@ -108,6 +108,6 @@ input[type="password"]{
   background: -moz-linear-gradient(top, #61c7e0, #418da8);
   }
 
-  .submit input:hover{
+.submit input:hover{
   background: #37a4bf;
  }

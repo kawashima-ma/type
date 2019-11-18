@@ -13,11 +13,13 @@
 		<form:form modelAttribute="updateForm" class="form" action="${pageContext.request.contextPath}/update" method="post">
 		<div id="update">
 			<p class="form-title">ユーザー登録</p>
+
 			<div class="error"><form:errors path="*"  /></div>
 			<c:if test="${not empty errorMessage}">
 				<c:out value="${errorMessage}" />
 				<c:remove var="errorMessage" scope="session" />
 			</c:if>
+
 				<form:label type="login_id"  path="login_id">ログインID</form:label>
 				<p class="loginId"><form:input type="login_id" path="login_id" /></p>
 

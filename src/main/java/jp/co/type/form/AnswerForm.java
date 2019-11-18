@@ -81,13 +81,13 @@ public class AnswerForm {
 		if(result.equals("drive")) {
 			num =1;
 			return num;
-		}else if(result.equals("volunteer")) {
+		}else if(result.equals("analyze")) {
 			num =2;
 			return num;
 		}else if(result.equals("create")) {
 			num =3;
 			return num;
-		}else if(result.equals("analyze")) {
+		}else if(result.equals("volunteer")) {
 			num =4;
 			return num;
 		}else if(result.equals("driveanalyze")) {

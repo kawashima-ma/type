@@ -14,10 +14,9 @@
 <body>
 <header>
 <ul>
-	<li><a href="#" id="home">Home</a></li>
-	<li><a href="#" id="news">News</a></li>
-	<li><a href="#" id="contact">Contact</a></li>
-	<li><a href="#" id="about">About</a></li>
+	<li><a href="./question" id="question">アンケート</a></li>
+	<li><a href="./total" id="total">全ユーザー結果一覧</a></li>
+	<li><a href="./setting" id="setting">ユーザー編集</a></li>
 	<li><a href="./logout"  id="logout">ログアウト</a></li>
 </ul>
 </header>
@@ -53,7 +52,7 @@
 	</c:forEach>
 </div>
 
-	<div class="point2"><div class="answer-title">１番当てはまるもの</div>
+	<div class="point2"><div class="answer-title">１番目に当てはまるもの</div>
 		<form:radiobuttons path="point2lists[${question.id}]" items="${ListA}" value="A" />
 		<form:radiobuttons path="point2lists[${question.id}]" items="${ListB}" value="B" />
 		<form:radiobuttons path="point2lists[${question.id}]" items="${ListC}" value="C" />
@@ -70,7 +69,7 @@
 </c:forEach>
 		<input type="hidden" value="point2lists[]">
 		<input type="hidden" value="point1lists[]">
-		<input type="submit" value="登録">
+		<p class="button"><input type="submit" value="回答結果"></p>
 </form:form>
 
 </body>

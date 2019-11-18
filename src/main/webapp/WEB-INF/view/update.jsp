@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="<c:url value="/resources/css/question.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/update.css" />" rel="stylesheet">
 <title>ユーザー情報変更</title>
 </head>
 <body>
@@ -29,7 +29,7 @@
 		        <form:label type="password" path="password">パスワード</form:label>
 		        <p class="password"><form:password  path="password" /></p>
 
-		        <form:label type="confirm_password" path="confirm_password">パスワード</form:label>
+		        <form:label type="confirm_password" path="confirm_password">パスワード(確認)</form:label>
 		        <p class="confirm_password"><form:password  path="confirm_password" /></p>
 
 

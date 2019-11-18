@@ -26,7 +26,7 @@ update p{
 label[type="login_id"],
 label[type="name"],
 label[type="password"],
-label[type="confirmPassword"]{
+label[type="confirm_password"]{
 	front-size: 14px;
 	color: #077685;
   	font-weight: bold;

@@ -31,6 +31,9 @@ public class QuestionController {
 	private AnswerService answerService;
 	@Autowired
 	private UserResultService resultService;
+	@Autowired
+	private AnswerForm AnswerForm;
+
 
 	@RequestMapping(value= "/question", method = RequestMethod.GET)
 	public String question(Model model){
@@ -111,10 +114,6 @@ public class QuestionController {
 		}
 
 
-		System.out.println(driveScore);
-		System.out.println(analyzeScore);
-		System.out.println(createScore);
-		System.out.println(volunteerScore);
 
 		 //全問回答してるかチェック
 		int totalScore = driveScore + analyzeScore + createScore + volunteerScore;
@@ -136,13 +135,35 @@ public class QuestionController {
 		int loginUser_id = loginUser.getId();
 		ResultAnswerService.resultAnswerService(loginUser_id,driveScore,analyzeScore,createScore,volunteerScore);
 
+		AnswerForm TypeA = AnswerForm.TypeDiscriminateA(driveScore,volunteerScore);
+		AnswerForm TypeB = AnswerForm.TypeDiscriminateB(createScore,analyzeScore);
+
+		String result_type = AnswerForm. TypeDiscriminate(TypeA,TypeB);
+
+		int result_num = AnswerForm.TypeDiscriminate_num(result_type);
+
+		ResultAnswerService.registerUserType(loginUser_id,result_num);
+
 		model.addAttribute("ListA", getRadio1());
 		model.addAttribute("ListB", getRadio2());
 		model.addAttribute("ListC", getRadio3());
 		model.addAttribute("ListD", getRadio4());
 
+
+//		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+
+//		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+
+
+//		System.out.println(userResult.getDrivescore());
+//		System.out.println(loginUser.getId());
+
+
+//		model.addAttribute("userResult", userResult);
+
 		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
 		model.addAttribute("userResult", userResult);
+
 
 		return "result";
 	}

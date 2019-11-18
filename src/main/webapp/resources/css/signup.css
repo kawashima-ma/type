@@ -27,7 +27,8 @@ signup p{
 
 label[type="login_id"],
 label[type="name"],
-label[type="password"]{
+label[type="password"],
+label[type="confirmPassword"]{
 	front-size: 14px;
 	color: #077685;
   	font-weight: bold;

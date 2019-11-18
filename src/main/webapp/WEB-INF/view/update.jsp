@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/question.css" />" rel="stylesheet">
 <title>ユーザー情報変更</title>
 </head>
 <body>

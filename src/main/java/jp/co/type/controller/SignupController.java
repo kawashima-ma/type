@@ -43,8 +43,8 @@ public class SignupController {
 			//登録することができませんの処理 エラーメッセジ　パスワード以外の値の保持
 		//}
 
-		if(signupForm.getPassword().equals(signupForm.getconfirmPassword())){
-		   	return "redirect:login";
+		if(!(signupForm.getPassword().equals(signupForm.getConfirmPassword()))){
+		   	return "redirect:signup";
 		  }
 
 

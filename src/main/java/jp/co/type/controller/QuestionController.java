@@ -1,8 +1,9 @@
 package jp.co.type.controller;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.type.dto.AnswerDto;
 import jp.co.type.dto.QuestionDto;
+import jp.co.type.dto.UserDto;
+import jp.co.type.dto.UserResultDto;
 import jp.co.type.form.AnswerForm;
 import jp.co.type.service.AnswerService;
 import jp.co.type.service.QuestionService;
 import jp.co.type.service.ResultAnswerService;
+import jp.co.type.service.UserResultService;
 
 @Controller
 public class QuestionController {
@@ -25,7 +29,8 @@ public class QuestionController {
 	private QuestionService questionService;
 	@Autowired
 	private AnswerService answerService;
-
+	@Autowired
+	private UserResultService resultService;
 
 	@RequestMapping(value= "/question", method = RequestMethod.GET)
 	public String question(Model model){
@@ -34,6 +39,7 @@ public class QuestionController {
 		List<AnswerDto> answers = answerService.getAnswer();
 		model.addAttribute("answerText" , answers );
 		model.addAttribute("AnswerForm" , new AnswerForm() );
+
 
 		model.addAttribute("ListA", getRadio1());
 		model.addAttribute("ListB", getRadio2());
@@ -44,79 +50,124 @@ public class QuestionController {
 
 	@Autowired
 	private ResultAnswerService ResultAnswerService;
+	@Autowired
+	private HttpSession session;
 
 	@RequestMapping(value = "/question", method = RequestMethod.POST)
-	public void getcheckInfo(@ModelAttribute AnswerForm form, Model model) {
+	public String getcheckInfo( @ModelAttribute AnswerForm form, Model model) {
 		int driveScore = 0;
 		int analyzeScore = 0;
 		int createScore = 0;
 		int volunteerScore = 0;
 
-		List<String> drive_ans = form.getDrive_ans();
-		List<String> analyze_ans = form.getAnalyze_ans();
-		List<String> create_ans = form.getCreate_ans();
-		List<String> volunteer_ans = form.getVolunteer_ans();
+		List<String> point2 = form.getPoint2lists();
+		List<String> point1 = form.getPoint1lists();
 
-		List<Integer> int_drive_ans = changeToInt(drive_ans);
-		List<Integer> int_analyze_ans = changeToInt(analyze_ans);
-		List<Integer> int_create_ans = changeToInt(create_ans);
-		List<Integer> int_volunteer_ans = changeToInt(volunteer_ans);
+		if(point2 == null || point1 == null) {
+			model.addAttribute("errorMessage", "無回答の質問があります");
+			List<QuestionDto> questions = questionService.getQuestion();
+			model.addAttribute("questionText" , questions );
+			List<AnswerDto> answers = answerService.getAnswer();
+			model.addAttribute("answerText" , answers );
+			model.addAttribute("AnswerForm",form);
+			model.addAttribute("ListA", getRadio1());
+			model.addAttribute("ListB", getRadio2());
+			model.addAttribute("ListC", getRadio3());
+			model.addAttribute("ListD", getRadio4());
+
+			return "question";
+		}
 
 
 //		配列の中身を4つそれぞれ加算する
-		for(int i =0; i<=int_drive_ans.size(); i++) {
-			driveScore += int_drive_ans.get(i);
+		for(int i =1; i<=point2.size()-1; i++) {
+			if(point2.get(i).equals("A")) {
+				driveScore += 2;
+			}
+			if(point2.get(i).equals("B")) {
+				analyzeScore += 2;
+			}
+			if(point2.get(i).equals("C")) {
+				createScore += 2;
+			}
+			if(point2.get(i).equals("D")) {
+				volunteerScore += 2;
+			}
 		}
 
-		for(int i =0; i<=int_analyze_ans.size(); i++) {
-			analyzeScore += int_analyze_ans.get(i);
+		for(int i =1; i<=point1.size()-1; i++) {
+			if(point1.get(i).equals("A")) {
+				driveScore += 1;
+			}
+			if(point1.get(i).equals("B")) {
+				analyzeScore += 1;
+			}
+			if(point1.get(i).equals("C")) {
+				createScore += 1;
+			}
+			if(point1.get(i).equals("D")) {
+				volunteerScore += 1;
+			}
 		}
 
-		for(int i =0; i<=int_create_ans.size(); i++) {
-			createScore += int_create_ans.get(i);
+
+		System.out.println(driveScore);
+		System.out.println(analyzeScore);
+		System.out.println(createScore);
+		System.out.println(volunteerScore);
+
+		 //全問回答してるかチェック
+		int totalScore = driveScore + analyzeScore + createScore + volunteerScore;
+		if(totalScore != 30) {
+			model.addAttribute("errorMessage", "無回答の質問があります");
+			List<QuestionDto> questions = questionService.getQuestion();
+			model.addAttribute("questionText" , questions );
+			List<AnswerDto> answers = answerService.getAnswer();
+			model.addAttribute("answerText" , answers );
+			model.addAttribute("AnswerForm",form);
+			model.addAttribute("ListA", getRadio1());
+			model.addAttribute("ListB", getRadio2());
+			model.addAttribute("ListC", getRadio3());
+			model.addAttribute("ListD", getRadio4());
+			return "question";
 		}
 
-		for(int i =0; i<=int_volunteer_ans.size(); i++) {
-			volunteerScore += int_volunteer_ans.get(i);
-		}
-
-		ResultAnswerService.resultAnswerService(driveScore,analyzeScore,createScore,volunteerScore);
+		UserDto loginUser =(UserDto)session.getAttribute("loginUser");
+		int loginUser_id = loginUser.getId();
+		ResultAnswerService.resultAnswerService(loginUser_id,driveScore,analyzeScore,createScore,volunteerScore);
 
 		model.addAttribute("ListA", getRadio1());
 		model.addAttribute("ListB", getRadio2());
 		model.addAttribute("ListC", getRadio3());
 		model.addAttribute("ListD", getRadio4());
+
+		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
+		model.addAttribute("userResult", userResult);
+
+		return "result";
 	}
 
 	private List<String> getRadio1() {
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         list.add("A");
         return list;
     }
 
     private List<String> getRadio2() {
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         list.add("B");
         return list;
     }
 
     private List<String> getRadio3() {
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         list.add("C");
         return list;
     }
 
     private List<String> getRadio4() {
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         list.add("D");
         return list;
-    }
-
-    private List<Integer> changeToInt(List<String> type_ans) {
-    	List<Integer> x = new ArrayList<Integer>();
-        for (int i = 0; i < type_ans.size(); i++) {
-            x.add(Integer.parseInt(type_ans.get(i)));
-        }
-        return x;
     }
 }

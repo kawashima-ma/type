@@ -28,7 +28,7 @@ public class UserPastController {
 
 
 
-	@RequestMapping(value = "/userpast", method = RequestMethod.GET)
+	@RequestMapping(value = "/userPast", method = RequestMethod.GET)
 	public String past(Model model) {
 
 
@@ -39,7 +39,7 @@ Integer num = 1;
 //		model.addAttribute("editForm", editFormFactory.create(editUser));
 //		model.addAttribute("isShowPulldown", isShowPulldown(managementForm.getIdAsInteger(),
 //				((UserDto) session.getAttribute("loginUser")).getId()));
-		return "result";
+		return "past";
 	}
 
 }

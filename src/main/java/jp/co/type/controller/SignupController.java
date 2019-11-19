@@ -7,6 +7,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,24 +30,22 @@ public class SignupController {
 
 	}
 
-//	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-//	public String signup(@ModelAttribute @Validated(SignupForm.All.class)SignupForm signupForm, BindingResult result, Model model) {
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signup(@ModelAttribute @Validated(SignupForm.All.class)SignupForm signupForm, BindingResult result, Model model) {
 
 		// password check
-
-		@RequestMapping(value = "/signup", method = RequestMethod.POST)
-		public String signup(@ModelAttribute @Valid SignupForm signupForm, BindingResult result, Model model) {
-			if (result.hasErrors()) {
-				return "/signup";
-			}
+//
+//		@RequestMapping(value = "/signup", method = RequestMethod.POST)
+//		public String signup(@ModelAttribute @Valid SignupForm signupForm, BindingResult result, Model model) {
+//			if (result.hasErrors()) {
+//				return "/signup";
+//			}
 
 		if (result.hasErrors()) {
 			return "/signup";
 		}
 
-		//if(signupForm.getPassword() == false && signupForm.getconfirmPassword()) {
-			//登録することができませんの処理 エラーメッセジ　パスワード以外の値の保持
-		//}
+
 
 		if(!(signupForm.getPassword().equals(signupForm.getConfirmPassword()))){
 		   	return "redirect:signup";

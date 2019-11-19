@@ -62,13 +62,30 @@ public class AnswerForm {
 		}
 	}
 
+//	public String TypeDiscriminate(AnswerForm TypeA,AnswerForm TypeB) {
+//		String result;
+//		if(TypeA.score > TypeB.score) {
+//			result = TypeA.resultType;
+//			return result;
+//		}else if(TypeA.score < TypeB.score) {
+//			result = TypeB.resultType;
+//			return result;
+//		}else {
+//			result = TypeA.resultType + TypeB.resultType;
+//			return result;
+//		}
+//	}
+
 	public String TypeDiscriminate(AnswerForm TypeA,AnswerForm TypeB) {
 		String result;
-		if(TypeA.score > TypeB.score) {
-			result = TypeA.resultType;
+		if(TypeA.resultType.equals("drivevolunteer") && TypeA.resultType.equals("createanalyze")) {
+			result = TypeA.resultType + TypeB.resultType;
 			return result;
-		}else if(TypeA.score < TypeB.score) {
+		}else if(TypeA.resultType.equals("drivevolunteer")) {
 			result = TypeB.resultType;
+			return result;
+		}else if(TypeB.resultType.equals("createanalyze")) {
+			result = TypeA.resultType;
 			return result;
 		}else {
 			result = TypeA.resultType + TypeB.resultType;

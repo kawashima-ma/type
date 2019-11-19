@@ -17,9 +17,11 @@
 		<div id ="login">
 			<p class="form-title">ログイン</p>
 			<div class="error">
-				<form:errors path="*"  />
+				<div><form:errors path="login_id" ></form:errors></div>
+				<div><form:errors path="password"/></div>
 				<c:if test="${not empty errorMessage}">
 					<div><c:out value="${errorMessage}" /></div>
+					 <c:remove var="errorMessage" scope="session" />
 				</c:if>
 			</div>
 				<form:label type="login_id" path="login_id">ログインID</form:label>
@@ -30,5 +32,6 @@
 		        <a href="signup" >ユーザー登録はこちら</a>
         </div>
 		</form:form>
+
 </body>
 </html>

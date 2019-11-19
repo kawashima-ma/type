@@ -19,7 +19,7 @@ import jp.co.type.form.validator.ConfirmPassword.ConfirmPasswordValidator;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = ConfirmPasswordValidator.class)
 public @interface ConfirmPassword {
-	String message() default "パスワードとパスワード(確認)が等しくありません";
+	String message() default "パスワードと確認パスワードが等しくありません";
 
 	Class<?>[] groups() default {};
 

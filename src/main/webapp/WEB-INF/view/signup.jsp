@@ -15,12 +15,14 @@
 		<form:form modelAttribute="signupForm" class="form" action="${pageContext.request.contextPath}/signup" method="post">
 		<div id="signup">
 			<p class="form-title">ユーザー登録</p>
+
 			<div class="error">
-			<div><form:errors path="login_id"/></div>
-			<div><form:errors path="name"/></div>
-			<div><form:errors path="password"/></div>
-			<div><form:errors path="confirmPassword"/></div>
+				<div><form:errors path="login_id"/></div>
+				<div><form:errors path="name"/></div>
+				<div><form:errors path="password"/></div>
+				<div><form:errors path="confirmPassword"/></div>
 			</div>
+
 				<form:label type="login_id"  path="login_id">ログインID</form:label>
 				<p class="loginId"><form:input type="login_id" path="login_id" /></p>
 
@@ -31,7 +33,9 @@
 		        <p class="password"><form:password  path="password" /></p>
 
                 <form:label type="confirmPassword" path="password">パスワード(確認)</form:label>
-				<p class="password"><form:password path="confirmPassword" /></p>
+				<p class="confirmPassword"><form:password path="confirmPassword" /></p>
+
+
 		        <p class="submit"><input type="submit" value="登録"></p>
 
 		        <a href="login">戻る</a>

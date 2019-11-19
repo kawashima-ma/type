@@ -30,10 +30,16 @@ public class SignupController {
 
 	}
 
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signup(@ModelAttribute @Validated(SignupForm.All.class)SignupForm signupForm, BindingResult result, Model model) {
+//	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+//	public String signup(@ModelAttribute @Validated(SignupForm.All.class)SignupForm signupForm, BindingResult result, Model model) {
 
 		// password check
+
+		@RequestMapping(value = "/signup", method = RequestMethod.POST)
+		public String signup(@ModelAttribute @Valid SignupForm signupForm, BindingResult result, Model model) {
+			if (result.hasErrors()) {
+				return "/signup";
+			}
 
 		if (result.hasErrors()) {
 			return "/signup";

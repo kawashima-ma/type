@@ -16,7 +16,7 @@
 <ul>
 	<li><a href="./question" id="question">アンケート</a></li>
 	<li><a href="./total" id="total">全ユーザー結果一覧</a></li>
-	<li><a href="./setting" id="setting">ユーザー編集</a></li>
+	<li><a href="./update" id="update">ユーザー編集</a></li>
 	<li><a href="./logout"  id="logout">ログアウト</a></li>
 </ul>
 </header>

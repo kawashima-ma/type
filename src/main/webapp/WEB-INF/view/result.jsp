@@ -6,18 +6,33 @@
 <head>
 	<title>診断結果</title>
  	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8" />
- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
  	<link href="<c:url value="/resources/css/result.css" />" rel="stylesheet">
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 </head>
 <body>
-	<div style="height:600px; width:1000px; margin:0 auto;">
+
+<header>
+<ul>
+	<li><a href="./question" id="question">アンケート</a></li>
+	<li><a href="./total" id="total1">全ユーザー結果一覧</a></li>
+	<li><a href="./update" id="update">ユーザー編集</a></li>
+	<li><a href="./logout"  id="logout">ログアウト</a></li>
+</ul>
+</header>
+
+	<div id="results">
+		<p class="result-title">診断結果</p>
+
+	<div class="resultType">
+		<c:out value="${userResult.getType_name()}" />型
+	</div>
+
+	<div class="canvas">
     	<canvas id="ChartId"></canvas>   <!-- ここがグラフの場所 -->
     </div>
 
 
-	<h2>あなたは型です。</h2>
-
-	<c:out value="${users.getDrivescore()}" />
+	</div>
 
 	<div class="table">
     <table border="3">

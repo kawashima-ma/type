@@ -162,6 +162,55 @@ ul:hover a:active {
 	margin:20px auto;
 }
 
-.table{
-	margin:auto;
+
+#result-table{
+	width: 1200px;
+	margin:20px auto;
+	padding-bottom: 20px;
+	border: 1px solid #555;
+	text-align: center;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 1px 10px #488a9e;
+	-moz-box-shadow: 0px 1px 10px #488a9e;
+	box-shadow: 0px 1px 10px #488a9e;
+	border: solid #4eb4c2 1px;
+	background: #fafafa;
+	text-align: center;
 }
+
+.result-table p{
+	font-size: 140px;
+}
+
+.table-title{
+	text-align: center;
+}
+
+#result-table p{
+  color: #077685;
+  font-weight: bold;
+  }
+
+#result-table .table-title{
+  font-family: Arial;
+  font-size: 30px;
+  color: #4eb4c2;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #4eb4c2;
+  margin-bottom: 20px;
+  }
+
+table{
+  width: 95%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin:auto;
+}
+
+table tr:last-child *{
+  border-bottom: none;
+}
+
+

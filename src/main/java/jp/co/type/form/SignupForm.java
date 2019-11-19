@@ -5,8 +5,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
-
+import jp.co.type.form.validator.ConfirmPassword;
+@ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
 
 public class SignupForm {
 	public interface Group1 {}

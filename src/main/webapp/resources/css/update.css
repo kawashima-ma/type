@@ -8,14 +8,14 @@ body,p,form,input{margin: 0}
 	text-align:center;
 }
 
-#signup{
+#update{
 	width: 400px;
 	margin:80px auto;
 	padding: 20px;
 	border: 1px solid #555;
 }
 
-signup p{
+update p{
 	front-size: 14px;
 }
 
@@ -26,7 +26,7 @@ signup p{
 label[type="login_id"],
 label[type="name"],
 label[type="password"],
-label[type="confirmPassword"]{
+label[type="confirm_password"]{
 	front-size: 14px;
 	color: #077685;
   	font-weight: bold;
@@ -52,19 +52,19 @@ input[type="password"]{
 
 /* フロント */
 
-#signup p{
+#update p{
   color: #077685;
   font-weight: bold;
   }
 
-#signup .form-title{
+#update .form-title{
   font-family: Arial;
   font-size: 30px;
   color: #4eb4c2;
   }
 
 /* 枠 */
-#signup{
+#update{
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -75,7 +75,7 @@ input[type="password"]{
   background: #fafafa;
   }
 
-#signup .form-title{
+#update .form-title{
   padding-bottom: 6px;
   border-bottom: 2px solid #4eb4c2;
   margin-bottom: 20px;

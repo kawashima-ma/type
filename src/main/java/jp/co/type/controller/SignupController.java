@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import jp.co.type.dto.factory.UserDtoFactory;
 import jp.co.type.form.SignupForm;
 import jp.co.type.service.SignupService;
@@ -32,17 +33,33 @@ public class SignupController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@ModelAttribute @Validated(SignupForm.All.class)SignupForm signupForm, BindingResult result, Model model) {
 
+		// password check
+//
+//		@RequestMapping(value = "/signup", method = RequestMethod.POST)
+//		public String signup(@ModelAttribute @Valid SignupForm signupForm, BindingResult result, Model model) {
+//			if (result.hasErrors()) {
+//				return "/signup";
+//			}
+
 		if (result.hasErrors()) {
 			return "/signup";
 		}
 
+
+
+		if(!(signupForm.getPassword().equals(signupForm.getConfirmPassword()))){
+		   	return "redirect:signup";
+		  }
+
+
 		try {
 			signupService.registUser(userDtoFactory.sign(signupForm));
 		} catch (DuplicateKeyException ex) {
-			result.rejectValue("loginId", "ログインIDが既に使用されています", "ログインIDが既に使用されています");
+			result.rejectValue("login_id", "ログインIDが既に使用されています", "ログインIDが既に使用されています");
 			return "/signup";
 		}
 
 		return "redirect:login";
+	  }
 	 }
-	}
+

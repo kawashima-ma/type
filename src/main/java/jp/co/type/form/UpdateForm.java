@@ -18,8 +18,9 @@ public class UpdateForm {
 	@Size(min = 6, max = 20,message = "パスワードを、6~20文字以下で入力して下さい")
 	@Pattern(regexp = "^[0-9a-zA-Z]+$",message = "パスワードを半角英数字で入力して下さい")
 	private String password;
-	@NotEmpty(message = "パスワードを入力してください")
+	@NotEmpty(message = "確認用パスワードを入力してください")
 	private String confirm_password;
+
 
 	public String getName() {
 		return name;
@@ -45,6 +46,34 @@ public class UpdateForm {
 	public void setConfirm_password(String confirm_password) {
 		this.confirm_password = confirm_password;
 	}
+
+//	@javax.validation.constraints.AssertTrue(message = "ログインIDを、6~20文字以下の半角英数で入力して下さい")
+//	public boolean isValidLogin_id() {
+//		if(login_id == null) {
+//			return true;
+//		}
+//		if(6 >login_id.length() || login_id.length() > 20 ) {
+//			return false;
+//		}else if(login_id.matches("^[0-9a-zA-Z]+")) {
+//			return true;
+//		}else {
+//			return false;
+//		}
+//	}
+//
+//	@javax.validation.constraints.AssertTrue(message = "パスワードを、6~20文字以下の半角英数で入力して下さい")
+//	public boolean isValidPassword() {
+//		if(StringUtils.isEmpty(this.password)) {
+//			return true;
+//		}
+//		if(6 >this.password.length() || this.password.length() > 20 ) {
+//			return false;
+//		}else if(this.password.matches("^[0-9a-zA-Z]+")) {
+//			return true;
+//		}else {
+//			return false;
+//		}
+//	}
 
 
 }

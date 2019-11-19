@@ -14,16 +14,20 @@
 </head>
 <body>
 <header>
-<input type="hidden" name="user_id" value="${user.id }">
-		        <p class="submit"><input type="submit" value="結果一覧"></p>
+<ul>
+	<li><a href="./question" id="question">アンケート</a></li>
+	<li><a href="./total" id="total1">全ユーザー結果一覧</a></li>
+	<li><a href="./update" id="update">ユーザー編集</a></li>
+	<li><a href="./logout"  id="logout">ログアウト</a></li>
+</ul>
 </header>
 
 	<div id="total">
 	<p class="form-title">全ユーザー結果一覧</p>
-	<form action="/userPast" class="person">
 	<c:forEach items="${users}" var="user" >
 		<div class="userTypeCard">
 			<div class="userTypeCard-inner">
+			<form action="/userPast" class="person">
 				<div class="userTypeCard-front">
 					<div class="userName">
 					<c:out value="${user.name}" /></div>
@@ -137,11 +141,10 @@
 		        </div>
 		        </div>
 		        </c:if>
-
+			</form>
         	</div>
         </div>
 	</c:forEach>
-	</form>
 	</div>
 </body>
 </html>

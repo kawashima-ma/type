@@ -22,7 +22,7 @@
 </header>
 
 
-<%!int i = 0; %>
+
 <h1>モチベーションタイプ診断（全${questionText.size()}問）</h1>
 			<div class="error">
 				<c:if test="${not empty errorMessage}">
@@ -51,26 +51,38 @@
 		</c:if>
 	</c:forEach>
 </div>
-
+<form name="myform">
 	<div class="point2"><div class="answer-title">１番目に当てはまるもの</div>
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListA}" value="A" />
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListB}" value="B" />
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListC}" value="C" />
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListD}" value="D" />
+		<form:radiobuttons path="point2lists[${question.id}]" items="${ListA}" value="A"  id="p2-radioA" onClick="changeDisabled('A')"/>
+		<form:radiobuttons path="point2lists[${question.id}]" items="${ListB}" value="B" id="p2-radioB" onClick="changeDisabled('B')"/>
+		<form:radiobuttons path="point2lists[${question.id}]" items="${ListC}" value="C" id="p2-radioC" onClick="changeDisabled('C')"/>
+		<form:radiobuttons path="point2lists[${question.id}]" items="${ListD}" value="D" id="p2-radioD" onClick="changeDisabled('D')"/>
 	</div>
 	<div class="point1"><div class="answer-title">２番目に当てはまるもの</div>
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListA}" value="A" />
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListB}" value="B" />
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListC}" value="C" />
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListD}" value="D" />
+		<form:radiobuttons path="point1lists[${question.id}]" items="${ListA}" value="A" id="p1-radioA"/>
+		<form:radiobuttons path="point1lists[${question.id}]" items="${ListB}" value="B" id="p1-radiB"/>
+		<form:radiobuttons path="point1lists[${question.id}]" items="${ListC}" value="C" id="p1-radioC"/>
+		<form:radiobuttons path="point1lists[${question.id}]" items="${ListD}" value="D" id="p1-radioD"/>
 	</div>
-
+</form>
 </div>
 </c:forEach>
 		<input type="hidden" value="point2lists[]">
 		<input type="hidden" value="point1lists[]">
 		<p class="button"><input type="submit" value="回答結果"></p>
 </form:form>
+
+<script type="text/javascript">
+function changeDisabled(ans){
+	var array =['p1-radioA', 'p1-radioB', 'p1-radioC', 'p1-radioD'];
+	if(ans == 'A'){
+		var r_btn1A = document.getElemntById('p1-radioA');
+		r-btn1A.setAttribute()
+	}
+	
+}
+
+</script>
 
 </body>
 </html>

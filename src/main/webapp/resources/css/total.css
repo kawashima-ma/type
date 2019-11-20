@@ -237,15 +237,18 @@ total p{
 
 /* 文字色とか */
 .userName{
-	font-size: 30px;
+	height:5px;
+	font-size: 25px;
 	font-weight: bold;
 	margin: 30px auto;
 	text-align: center;
 	color:#363636;
+
 }
 
 .userLoginId{
-	margin: -35px;
+	margin-top: -60px;
+	margin-left: -5px;
 	font-size: 15px;
 	color: #7c7c7c;
 }

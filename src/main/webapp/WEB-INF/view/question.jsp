@@ -53,31 +53,69 @@
 </div>
 
 	<div class="point2"><div class="answer-title">１番目に当てはまるもの</div>
-		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListA}" value="A"  onChange="changeDisabled()" disabled="false"/>
-		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListB}" value="B" onClick="changeDisabled()" disabled="false"/>
-		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListC}" value="C" onClicke="changeDisabled()" disabled="false"/>
-		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListD}" value="D"  onClick="changeDisabled()" disabled="false"/>
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListA}" value="A"  onChange="changeDisabled2(${question.id})" disabled="false"/>
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListB}" value="B" onChange="changeDisabled2(${question.id})" disabled="false"/>
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListC}" value="C" onChange="changeDisabled2(${question.id})" disabled="false"/>
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListD}" value="D"  onChange="changeDisabled2(${question.id})" disabled="false"/>
 	</div>
 	<div class="point1"><div class="answer-title">２番目に当てはまるもの</div>
-		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListA}" value="A"  disabled="false"/>
-		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListB}" value="B"  disabled="false"/>
-		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListC}" value="C"  disabled="false"/>
-		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListD}" value="D"  disabled="false"/>
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListA}" value="A" onChange="changeDisabled(${question.id})" disabled="false"/>
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListB}" value="B" onChange="changeDisabled(${question.id})" disabled="false"/>
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListC}" value="C" onChange="changeDisabled(${question.id})" disabled="false"/>
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListD}" value="D" onChange="changeDisabled(${question.id})" disabled="false"/>
 	</div>
 
 <script type="text/javascript">
-function changeDisabled(){
-	check2A = document.getElementById("point2lists${question.id}1");
-	check2B = document.getElementById("point2lists${question.id}2");
-	check2C = document.getElementById("point2lists${question.id}3");
-	check2D = document.getElementById("point2lists${question.id}4");
+
+function changeDisabled2(num){
+	check2A = document.getElementById("point2lists" + num + "1");
+	check2B = document.getElementById("point2lists" + num + "2");
+	check2C = document.getElementById("point2lists" + num + "3");
+	check2D = document.getElementById("point2lists" + num + "4");
 
 	if(check2A.checked == true){
-		document.getElementById("point1lists${question.id}1").disabled = true;
-	}else{document.getElementById("point1lists${question.id}1").disabled = false;
+		document.getElementById("point1lists" + num + "1").disabled = true;
+	}else{document.getElementById("point1lists" + num + "1").disabled = false;
 	}
+	if(check2B.checked == true){
+		document.getElementById("point1lists" + num + "2").disabled = true;
+	}else{document.getElementById("point1lists" + num + "2").disabled = false;
+	}
+	if(check2C.checked == true){
+		document.getElementById("point1lists" + num + "3").disabled = true;
+	}else{document.getElementById("point1lists" + num + "3").disabled = false;
+	}
+	if(check2D.checked == true){
+		document.getElementById("point1lists" + num + "4").disabled = true;
+	}else{document.getElementById("point1lists" + num + "4").disabled = false;
+	}
+
 }
 
+function changeDisabled(num){
+	check1A = document.getElementById("point1lists" + num + "1");
+	check1B = document.getElementById("point1lists" + num + "2");
+	check1C = document.getElementById("point1lists" + num + "3");
+	check1D = document.getElementById("point1lists" + num + "4");
+
+	if(check1A.checked == true){
+		document.getElementById("point2lists" + num + "1").disabled = true;
+	}else{document.getElementById("point2lists" + num + "1").disabled = false;
+	}
+	if(check1B.checked == true){
+		document.getElementById("point2lists" + num + "2").disabled = true;
+	}else{document.getElementById("point2lists" + num + "2").disabled = false;
+	}
+	if(check1C.checked == true){
+		document.getElementById("point2lists" + num + "3").disabled = true;
+	}else{document.getElementById("point2lists" + num + "3").disabled = false;
+	}
+	if(check1D.checked == true){
+		document.getElementById("point2lists" + num + "4").disabled = true;
+	}else{document.getElementById("point2lists" + num + "4").disabled = false;
+	}
+
+}
 </script>
 </div>
 </c:forEach>

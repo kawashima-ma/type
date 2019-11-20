@@ -175,7 +175,8 @@ total p{
 
 .userTypeCard-front, .userTypeCard-back1, .userTypeCard-back2,
 .userTypeCard-back3, .userTypeCard-back4, .userTypeCard-back5,
-.userTypeCard-back6, .userTypeCard-back7, .userTypeCard-back8 {
+.userTypeCard-back6, .userTypeCard-back7, .userTypeCard-back8,
+.userTypeCard-back9 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -225,6 +226,11 @@ total p{
 .userTypeCard-back8 {
 	background: linear-gradient(22deg, rgba(196, 255, 74, .5) 50%, rgba(255, 255, 30, .5) 50%);
 	color: white;
+	transform: rotateY(180deg);
+}
+.userTypeCard-back9 {
+	background: #e9e3c0;
+	color: black;
 	transform: rotateY(180deg);
 }
 

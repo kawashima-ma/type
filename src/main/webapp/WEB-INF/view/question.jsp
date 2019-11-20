@@ -22,7 +22,7 @@
 </header>
 
 
-<%!int i = 0; %>
+
 <h1>モチベーションタイプ診断（全${questionText.size()}問）</h1>
 			<div class="error">
 				<c:if test="${not empty errorMessage}">
@@ -51,26 +51,42 @@
 		</c:if>
 	</c:forEach>
 </div>
-
+<form name="myform">
 	<div class="point2"><div class="answer-title">１番目に当てはまるもの</div>
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListA}" value="A" />
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListB}" value="B" />
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListC}" value="C" />
-		<form:radiobuttons path="point2lists[${question.id}]" items="${ListD}" value="D" />
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListA}" value="A"  onChange="changeDisabled()" disabled="false"/>
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListB}" value="B" onClick="changeDisabled()" disabled="false"/>
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListC}" value="C" onClicke="changeDisabled()" disabled="false"/>
+		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListD}" value="D"  onClick="changeDisabled()" disabled="false"/>
 	</div>
 	<div class="point1"><div class="answer-title">２番目に当てはまるもの</div>
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListA}" value="A" />
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListB}" value="B" />
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListC}" value="C" />
-		<form:radiobuttons path="point1lists[${question.id}]" items="${ListD}" value="D" />
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListA}" value="A"  disabled="false"/>
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListB}" value="B"  disabled="false"/>
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListC}" value="C"  disabled="false"/>
+		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListD}" value="D"  disabled="false"/>
 	</div>
+</form>
+<script type="text/javascript">
+function changeDisabled(){
+	check2A = document.getElementById("point2lists${question.id}1");
+	check2B = document.getElementById("point2lists${question.id}2");
+	check2C = document.getElementById("point2lists${question.id}3");
+	check2D = document.getElementById("point2lists${question.id}4");
 
+	if(check2A.checked == true){
+		document.getElementById("point1lists${question.id}1").disabled = true;
+	}else{document.getElementById("point1lists${question.id}1").disabled = false;
+	}
+}
+
+</script>
 </div>
 </c:forEach>
 		<input type="hidden" value="point2lists[]">
 		<input type="hidden" value="point1lists[]">
 		<p class="button"><input type="submit" value="回答結果"></p>
 </form:form>
+
+
 
 </body>
 </html>

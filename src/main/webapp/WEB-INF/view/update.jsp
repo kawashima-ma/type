@@ -12,16 +12,14 @@
 <body>
 		<form:form modelAttribute="updateForm" class="form" action="${pageContext.request.contextPath}/update" method="post">
 		<div id="update">
-			<p class="form-title">ユーザー登録</p>
+			<p class="form-title">ユーザー編集</p>
 
 
 			<div class="error"><form:errors path="login_id"  />
-			<div><form:errors path="name"></form:errors></div>
-			<div><form:errors path="password"></form:errors></div>
-			<div><form:errors path="confirm_password"></form:errors></div>
+			<div><form:errors path="name"/></div>
+			<div><form:errors path="password"/></div>
+			<div><form:errors path="confirm_password"/></div>
 			</div>
-
-			<div class="error"><form:errors path="*"  /></div>
 
 			<c:if test="${not empty errorMessage}">
 				<c:out value="${errorMessage}" />
@@ -44,7 +42,7 @@
 
 		        <p class="submit"><input type="submit" value="登録"></p>
 
-		        <a href="login">戻る</a>
+		        <a href="question">戻る</a>
 		</div>
 		</form:form>
 

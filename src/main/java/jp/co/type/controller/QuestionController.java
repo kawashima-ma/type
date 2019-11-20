@@ -162,10 +162,9 @@ public class QuestionController {
 //		model.addAttribute("userResult", userResult);
 
 		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
-		model.addAttribute("userResult", userResult);
+		session.setAttribute("userResult", userResult);
 
-
-		return "result";
+		return "redirect:result";
 	}
 
 	private List<String> getRadio1() {

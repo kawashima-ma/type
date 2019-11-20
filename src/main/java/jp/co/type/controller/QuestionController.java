@@ -114,23 +114,6 @@ public class QuestionController {
 		}
 
 
-
-		 //全問回答してるかチェック
-		int totalScore = driveScore + analyzeScore + createScore + volunteerScore;
-		if(totalScore != 30) {
-			model.addAttribute("errorMessage", "無回答の質問があります");
-			List<QuestionDto> questions = questionService.getQuestion();
-			model.addAttribute("questionText" , questions );
-			List<AnswerDto> answers = answerService.getAnswer();
-			model.addAttribute("answerText" , answers );
-			model.addAttribute("AnswerForm",form);
-			model.addAttribute("ListA", getRadio1());
-			model.addAttribute("ListB", getRadio2());
-			model.addAttribute("ListC", getRadio3());
-			model.addAttribute("ListD", getRadio4());
-			return "question";
-		}
-
 		UserDto loginUser =(UserDto)session.getAttribute("loginUser");
 		int loginUser_id = loginUser.getId();
 		ResultAnswerService.resultAnswerService(loginUser_id,driveScore,analyzeScore,createScore,volunteerScore);
@@ -163,6 +146,23 @@ public class QuestionController {
 
 		UserResultDto userResult = resultService.getUserResult(loginUser.getId());
 		session.setAttribute("userResult", userResult);
+
+
+		//全問回答してるかチェック
+				int totalScore = driveScore + analyzeScore + createScore + volunteerScore;
+				if(totalScore != 30) {
+					model.addAttribute("errorMessage", "無回答の質問があります");
+					List<QuestionDto> questions = questionService.getQuestion();
+					model.addAttribute("questionText" , questions );
+					List<AnswerDto> answers = answerService.getAnswer();
+					model.addAttribute("answerText" , answers );
+					model.addAttribute("AnswerForm",form);
+					model.addAttribute("ListA", getRadio1());
+					model.addAttribute("ListB", getRadio2());
+					model.addAttribute("ListC", getRadio3());
+					model.addAttribute("ListD", getRadio4());
+					return "question";
+				}
 
 		return "redirect:result";
 	}

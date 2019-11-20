@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -55,7 +56,13 @@ public class UpdateController {
 		UserDto loginUser = (UserDto) session.getAttribute("loginUser");
 		model.addAttribute("updateForm", updateForm);
 		model.addAttribute("user",loginUser);
-		updateService.updateUser(userDtoFactory.create(updateForm,loginUser.getId()));
+
+		try {
+			updateService.updateUser(userDtoFactory.create(updateForm,loginUser.getId()));
+		} catch (DuplicateKeyException ex) {
+			result.rejectValue("login_id", "ログインIDが既に使用されています", "ログインIDが既に使用されています");
+			return "/update";
+		}
 
 		return "redirect:question";
 

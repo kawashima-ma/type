@@ -82,23 +82,6 @@ public class QuestionController {
 		}
 
 
-		 //全問回答してるかチェック
-		int totalScore = driveScore + analyzeScore + createScore + volunteerScore;
-		if(totalScore != 30) {
-			model.addAttribute("errorMessage", "無回答の質問があります");
-			List<QuestionDto> questions = questionService.getQuestion();
-			model.addAttribute("questionText" , questions );
-			List<AnswerDto> answers = answerService.getAnswer();
-			model.addAttribute("answerText" , answers );
-			model.addAttribute("AnswerForm",form);
-			model.addAttribute("ListA", getRadio1());
-			model.addAttribute("ListB", getRadio2());
-			model.addAttribute("ListC", getRadio3());
-			model.addAttribute("ListD", getRadio4());
-			return "question";
-		}
-
-
 //		配列の中身を4つそれぞれ加算する
 		for(int i =1; i<=point2.size()-1; i++) {
 			if(point2.get(i).equals("A")) {
@@ -132,7 +115,21 @@ public class QuestionController {
 
 
 
-
+		 //全問回答してるかチェック
+		int totalScore = driveScore + analyzeScore + createScore + volunteerScore;
+		if(totalScore != 30) {
+			model.addAttribute("errorMessage", "無回答の質問があります");
+			List<QuestionDto> questions = questionService.getQuestion();
+			model.addAttribute("questionText" , questions );
+			List<AnswerDto> answers = answerService.getAnswer();
+			model.addAttribute("answerText" , answers );
+			model.addAttribute("AnswerForm",form);
+			model.addAttribute("ListA", getRadio1());
+			model.addAttribute("ListB", getRadio2());
+			model.addAttribute("ListC", getRadio3());
+			model.addAttribute("ListD", getRadio4());
+			return "question";
+		}
 
 		UserDto loginUser =(UserDto)session.getAttribute("loginUser");
 		int loginUser_id = loginUser.getId();

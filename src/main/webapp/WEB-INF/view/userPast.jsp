@@ -8,19 +8,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/userPast.css" />" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 <title>診断結果の履歴</title>
 </head>
 <body>
+<header>
+<ul>
+	<li><a href="./question" id="question">アンケート</a></li>
+	<li><a href="./total" id="total1">全ユーザー結果一覧</a></li>
+	<li><a href="./update" id="update">ユーザー編集</a></li>
+	<li><a href="./logout"  id="logout">ログアウト</a></li>
+</ul>
+</header>
 
 	<c:forEach items="${userpastResults}" var="userpastResult">
 
-	<c:out value="${userpastResult.name}"/>さん<br>
-
-	<fmt:formatDate value="${userpastResult.createdAt}" pattern="yyyy年MM月dd日"/> の診断結果
-
-	<div class="canvas">
-    	<canvas id="${userpastResult.result_id}"></canvas>   <!-- ここがグラフの場所 -->
+	<div id="history">
+		<p class="past-title">
+			<fmt:formatDate value="${userpastResult.createdAt}" pattern="yyyy年MM月dd日"/><br>
+			<c:out value="${userpastResult.name}"/>さんの診断結果
+		</p>
+		<div class="canvas">
+	    	<canvas id="${userpastResult.result_id}"></canvas>   <!-- ここがグラフの場所 -->
+	    </div>
     </div>
 
 <script>

@@ -21,7 +21,12 @@
 				<div><form:errors path="name"/></div>
 				<div><form:errors path="password"/></div>
 				<div><form:errors path="confirmPassword"/></div>
-			</div>
+
+				<c:if test="${not empty errorMessage}">
+					<c:out value="${errorMessage}" />
+					<c:remove var="errorMessage" scope="session" />
+				</c:if>
+			</div><br/>
 
 				<form:label type="login_id"  path="login_id">ログインID</form:label>
 				<p class="loginId"><form:input type="login_id" path="login_id" /></p>

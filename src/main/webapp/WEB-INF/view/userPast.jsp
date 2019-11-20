@@ -14,7 +14,7 @@
 <body>
 
 	<c:forEach items="${userpastResults}" var="userpastResult">
-	
+
 	<c:out value="${userpastResult.name}"/>さん<br>
 
 	<fmt:formatDate value="${userpastResult.createdAt}" pattern="yyyy年MM月dd日"/> の診断結果
@@ -56,3 +56,7 @@
 	</c:forEach>
 </body>
 </html>
+
+
+
+

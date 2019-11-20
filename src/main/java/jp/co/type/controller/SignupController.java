@@ -1,7 +1,5 @@
 package jp.co.type.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
@@ -45,11 +43,12 @@ public class SignupController {
 			return "/signup";
 		}
 
-
-
-		if(!(signupForm.getPassword().equals(signupForm.getConfirmPassword()))){
-		   	return "redirect:signup";
-		  }
+		String password = signupForm.getPassword();
+		String confirm_password = signupForm.getConfirmPassword();
+		if(!(password.equals(confirm_password))) {
+			model.addAttribute("errorMessage","パスワードと確認用パスワードが一致しません");
+			return "signup";
+		}
 
 
 		try {

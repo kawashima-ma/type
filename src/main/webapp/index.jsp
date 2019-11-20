@@ -22,6 +22,11 @@
 </ul>
 </header>
 
+<body>
+
+
+
+
 
 
 		<c:url value="/showMessage.html" var="messageUrl" />

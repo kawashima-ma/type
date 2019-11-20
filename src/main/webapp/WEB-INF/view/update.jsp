@@ -19,18 +19,18 @@
 			<div><form:errors path="name"/></div>
 			<div><form:errors path="password"/></div>
 			<div><form:errors path="confirm_password"/></div>
-			</div>
 
 			<c:if test="${not empty errorMessage}">
 				<c:out value="${errorMessage}" />
 				<c:remove var="errorMessage" scope="session" />
 			</c:if>
+			</div><br/>
 
 				<form:label type="login_id"  path="login_id">ログインID</form:label>
-				<p class="loginId"><form:input type="login_id" path="login_id" /></p>
+				<p class="loginId"><form:input type="login_id" path="login_id"  value="${user.login_id}"/></p>
 
 				<form:label type="name"  path="name">名前</form:label>
-		        <p class="name"><form:input type="name" path="name" /></p>
+		        <p class="name"><form:input type="name" path="name"  value="${user.name}"/></p>
 
 		        <form:label type="password" path="password">パスワード</form:label>
 		        <p class="password"><form:password  path="password" /></p>

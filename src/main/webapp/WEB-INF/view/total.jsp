@@ -22,12 +22,13 @@
 </ul>
 </header>
 
+
 	<div id="total">
 	<p class="form-title">全ユーザー結果一覧</p>
 	<c:forEach items="${users}" var="user" >
 		<div class="userTypeCard">
 			<div class="userTypeCard-inner">
-			<form action="/userPast" class="person">
+			<form:form action="${pageContext.request.contextPath}/userPast" class="person" method="get">
 				<div class="userTypeCard-front">
 					<div class="userName">
 					<c:out value="${user.name}" /></div>
@@ -141,10 +142,11 @@
 		        </div>
 		        </div>
 		        </c:if>
-			</form>
+			</form:form>
         	</div>
         </div>
 	</c:forEach>
 	</div>
+
 </body>
 </html>

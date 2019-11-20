@@ -51,7 +51,7 @@
 		</c:if>
 	</c:forEach>
 </div>
-<form name="myform">
+
 	<div class="point2"><div class="answer-title">１番目に当てはまるもの</div>
 		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListA}" value="A"  onChange="changeDisabled()" disabled="false"/>
 		<form:radiobuttons  path="point2lists[${question.id}]" items="${ListB}" value="B" onClick="changeDisabled()" disabled="false"/>
@@ -64,7 +64,7 @@
 		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListC}" value="C"  disabled="false"/>
 		<form:radiobuttons  path="point1lists[${question.id}]" items="${ListD}" value="D"  disabled="false"/>
 	</div>
-</form>
+
 <script type="text/javascript">
 function changeDisabled(){
 	check2A = document.getElementById("point2lists${question.id}1");

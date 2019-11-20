@@ -142,6 +142,15 @@
 		        </div>
 		        </div>
 		        </c:if>
+
+		        <c:if test="${user.result_type == null }">
+				<div class="userTypeCard-back9">
+				<div class="userType">
+					診断してください
+				</div>
+		        </div>
+		        </c:if>
+
 			</form:form>
         	</div>
         </div>

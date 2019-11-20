@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.type.dto.UserResultDto;
 import jp.co.type.service.UserResultService;
@@ -28,18 +29,16 @@ public class UserPastController {
 
 
 
-	@RequestMapping(value = "/userpast", method = RequestMethod.GET)
-	public String past(Model model) {
+	@RequestMapping(value = "/userPast", method = RequestMethod.GET)
+	public String past(Model model, @RequestParam("user_id") int num) {
 
-
-Integer num = 1;
 		List<UserResultDto> userpastResults = resultService.getUserResultAll(num);
 
 		model.addAttribute("userpastResults",userpastResults);
 //		model.addAttribute("editForm", editFormFactory.create(editUser));
 //		model.addAttribute("isShowPulldown", isShowPulldown(managementForm.getIdAsInteger(),
 //				((UserDto) session.getAttribute("loginUser")).getId()));
-		return "result";
+		return "/userPast";
 	}
 
 }

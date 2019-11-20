@@ -5,6 +5,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
 import jp.co.type.form.validator.ConfirmPassword;
 @ConfirmPassword(password = "password", confirmPassword = "confirmPassword")
 
@@ -30,7 +31,7 @@ public class SignupForm {
 	private String password;
 
 
-	@Pattern(regexp = "[a-zA-Z0-9]+")
+	@NotEmpty(message = "確認用パスワードを入力してください")
 	private String confirmPassword;
 
 	public String getLogin_id() {

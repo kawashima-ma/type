@@ -10,15 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.type.dto.UserDto;
 import jp.co.type.dto.UserResultDto;
-import jp.co.type.service.UserResultService;
 
 
 @Controller
 public class UserResultController {
-	@Autowired
-	private UserResultService resultService;
-
-	@Autowired
+		@Autowired
 	private HttpSession session;
 
 	@RequestMapping(value = "/result", method = RequestMethod.GET)

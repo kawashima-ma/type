@@ -1,7 +1,5 @@
 package jp.co.type.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +17,6 @@ public class UserPastResultController {
 //	private EditFormFactory editFormFactory;
 //	@Autowired
 //	private UserDtoFactory userDtoFactory;
-	@Autowired
-	private HttpSession session;
 
 	@RequestMapping(value = "/pastuserresults", method = RequestMethod.GET)
 	public String edit(Model model) {

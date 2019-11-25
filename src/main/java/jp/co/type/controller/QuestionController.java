@@ -168,25 +168,25 @@ public class QuestionController {
 	}
 
 	private List<String> getRadio1() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("A");
         return list;
     }
 
     private List<String> getRadio2() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("B");
         return list;
     }
 
     private List<String> getRadio3() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("C");
         return list;
     }
 
     private List<String> getRadio4() {
-        List<String> list = new LinkedList<>();
+        List<String> list = new LinkedList<String>();
         list.add("D");
         return list;
     }
